@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>극한의 단타충</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/BTC.css' />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+		<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="/javascripts/BTC.js"></script>
+  </head>
+  <body onload="proc()">
+    <div id="wrap">
+      <header id="header">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;" >
+          <div class="container-fluid">
+            <a class="navbar-brand">
+              <img src="/images/logo.svg" width="300px" alt="logo"/>
+            </a>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+      </header>
+      <div id="content_container">
+        <div id="realtime_price">
+          <h1 id="coin_price"></h1>
+          <div id="coin_info">
+            <div id="max_price">
+              <span>고가 (당일)</span>
+              <span class="info_value"></span>
+              <span>원</span>
+            </div>
+            <div id="min_price">
+              <span>저가 (당일)</span>
+              <span class="info_value"></span>
+              <span>원</span>
+            </div>
+            <div id="units_traded_24H">
+              <span>거래량 (24시간)</span>
+              <span class="info_value"></span>
+              <span>BTC</span>
+            </div>
+            <div id="acc_trade_value_24H">
+              <span>거래량 (24시간)</span>
+              <span class="info_value"></span>
+              <span>억</span>
+            </div>
+          </div>
+        </div>
+        <div id="chart"></div>
+      </div>
+      <div id="billboard">
+        billboard
+      </div>
+      <footer id="footer">
+
+      </footer>
+    </div>
+  </body>
+</html>

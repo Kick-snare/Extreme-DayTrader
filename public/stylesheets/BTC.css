@@ -1,0 +1,50 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f3eee6; }
+
+a {
+  color: #00b7ff; }
+
+#wrap {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: auto;
+  min-height: 1000px;
+  border-radius: 10px; }
+
+#header {
+  border-radius: 7px;
+  height: 70px;
+  margin-bottom: 30px; }
+
+#content_container {
+  width: 100%;
+  margin: 0px auto 70px;
+  display: flex;
+  justify-content: center; }
+
+#chart {
+  width: 60%;
+  max-width: 1000px;
+  height: 500px;
+  border: 1px solid black;
+  margin-left: auto; }
+
+#billboard {
+  width: auto;
+  height: auto;
+  min-height: 500px;
+  border: 1px solid black; }
+
+#realtime_price {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin-right: auto;
+  height: 500px;
+  width: 40%;
+  max-width: 700px; }
+
+/*# sourceMappingURL=BTC.css.map */
