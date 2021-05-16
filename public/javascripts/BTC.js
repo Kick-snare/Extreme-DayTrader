@@ -44,24 +44,50 @@ function draw3(){
         });
     });
 }
-draw3();
 
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function rbchecker(pcp){
+    if(pcp > 0) {
+        $('#diff_pcp').css('background-color','red');
+        $('#coin_price').css('color','red');
+
+    }
+    else {
+        $('#diff_pcp').css('background-color','blue');
+        $('#coin_price').css('color','blue');
+
+    }
+}
+
 function bithumb(){
     $.get('https://api.bithumb.com/public/ticker/BTC_KRW', function(data) {
-        var bithumb_btc = parseFloat(data['data']['closing_price']);
-        $('#coin_price').html(numberWithCommas(bithumb_btc) + '원'); // 거래소 시세 정보 표에 값 세팅
+        var btc_price = parseFloat(data['data']['closing_price']);
+        var btc_max_price = parseFloat(data['data']['max_price']);
+        var btc_min_price = parseFloat(data['data']['min_price']);
+        var btc_24H = (+data['data']['units_traded_24H']).toFixed(2);
+        var btc_24H_acc = ((data['data']['acc_trade_value_24H'])/100000000).toFixed(2);
+        var btc_pcp = +(data['data']['prev_closing_price']);
+        var btc_diff = (btc_price - btc_pcp) / btc_pcp * 100;
+        $('#coin_price').html(numberWithCommas(btc_price)+' KRW');
+        $('#max_price').html(numberWithCommas(btc_max_price));
+        $('#min_price').html(numberWithCommas(btc_min_price));
+        $('#units_traded_24H').html(numberWithCommas(btc_24H));
+        $('#acc_trade_value_24H').html(numberWithCommas(btc_24H_acc));
+        $('#diff_pcp').html(btc_diff.toFixed(2) + '%');
+        rbchecker(btc_diff);
     });
 }
 
-// 갱신 함수
 function proc() {
-    bithumb(); // 빗썸
+    bithumb();
+    setTimeout("proc()", 500);
+}
 
-    // poloniex();
-    setTimeout("proc()", 500); //10초후 재시작
+function proc2() {
+    draw3();
+    setTimeout("proc2()", 6000);
 }

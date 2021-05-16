@@ -43,8 +43,32 @@ a {
   flex-direction: column;
   border: 1px solid black;
   margin-right: auto;
+  padding: 20px;
   height: 500px;
   width: 40%;
   max-width: 700px; }
+  #realtime_price h1 {
+    padding: 10px; }
+  #realtime_price #diff_pcp {
+    width: 80px;
+    height: 30px;
+    padding-top: 5px;
+    margin-left: auto;
+    border-radius: 5px;
+    background-color: grey;
+    text-align: center;
+    color: white; }
+
+#coin_info {
+  display: flex;
+  flex-direction: column; }
+  #coin_info div {
+    padding: 10px;
+    margin: 10px; }
+  #coin_info span:first-child {
+    background-color: #5f5f5f;
+    color: white;
+    padding: 3px;
+    border-radius: 5px; }
 
 /*# sourceMappingURL=BTC.css.map */

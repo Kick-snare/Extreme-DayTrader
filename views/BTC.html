@@ -10,7 +10,7 @@
 		<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
     <script src="/javascripts/BTC.js"></script>
   </head>
-  <body onload="proc()">
+  <body onload="proc(); proc2();">
     <div id="wrap">
       <header id="header">
         <nav class="navbar navbar-light" style="background-color: #e3f2fd;" >
@@ -28,26 +28,27 @@
       <div id="content_container">
         <div id="realtime_price">
           <h1 id="coin_price"></h1>
+          <div id="diff_pcp"></div>
           <div id="coin_info">
-            <div id="max_price">
+            <div>
               <span>고가 (당일)</span>
-              <span class="info_value"></span>
+              <span id="max_price"></span>
               <span>원</span>
             </div>
-            <div id="min_price">
+            <div >
               <span>저가 (당일)</span>
-              <span class="info_value"></span>
+              <span id="min_price"></span>
               <span>원</span>
             </div>
-            <div id="units_traded_24H">
+            <div >
               <span>거래량 (24시간)</span>
-              <span class="info_value"></span>
+              <span id="units_traded_24H"></span>
               <span>BTC</span>
             </div>
-            <div id="acc_trade_value_24H">
+            <div >
               <span>거래량 (24시간)</span>
-              <span class="info_value"></span>
-              <span>억</span>
+              <span id="acc_trade_value_24H"></span>
+              <span>억원</span>
             </div>
           </div>
         </div>
