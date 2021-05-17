@@ -89,5 +89,5 @@ function proc() {
 
 function proc2() {
     draw3();
-    setTimeout("proc2()", 6000);
+    setTimeout("proc2()", 3000);
 }
