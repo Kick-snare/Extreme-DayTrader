@@ -35,9 +35,10 @@ a {
 
 #chart{
   width: 60%;
+  display: block;
   max-width: 1000px;
   height: 500px;
-  border: 1px solid black;
+  // border: 1px solid black;
   margin-left: auto;
 }
 
@@ -45,13 +46,15 @@ a {
   width: auto;
   height: auto;
   min-height: 500px;
+  
   border: 1px solid black;
 }
 
 #realtime_price{
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 20px solid white;
+  background-color: rgb(250, 250, 250);
   margin-right: auto;
   padding: 20px;
   height: 500px;

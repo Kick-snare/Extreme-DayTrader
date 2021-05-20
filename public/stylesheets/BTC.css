@@ -27,9 +27,9 @@ a {
 
 #chart {
   width: 60%;
+  display: block;
   max-width: 1000px;
   height: 500px;
-  border: 1px solid black;
   margin-left: auto; }
 
 #billboard {
@@ -41,7 +41,8 @@ a {
 #realtime_price {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 20px solid white;
+  background-color: #fafafa;
   margin-right: auto;
   padding: 20px;
   height: 500px;

@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+const { request } = require('express');
 
 var app = express();
 
@@ -34,9 +35,37 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
-app.get('/BTC', (req, res) => {
+app.get('/BTC', (req,res) => {
   res.render('BTC');
-});
+})
+
+app.get('/bithumb-api', (req,res) => {
+  var request = require('request');
+  var options = {
+    'method': 'GET',
+    'url': 'https://api.bithumb.com/public/ticker/BTC_KRW'
+  };
+  request(options, function (error, response) { 
+    console.log(response.body);
+    if (error) throw new Error(error);
+      res.json(response.body);
+  });
+})
+
+app.get('/poloniex-api', (req,res) => {
+  var request = require('request');
+  var options = {
+    'method': 'GET',
+    'url': 'https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=' + (new Date().getTime()-86400000 + "").substring(0,10) + '&end=9999999999&period=300'
+  };
+
+  request(options, function (error, response) { 
+    console.log(response.body);
+    if (error) throw new Error(error);
+      res.json(response.body);
+  });
+})
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

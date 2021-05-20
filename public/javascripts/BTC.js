@@ -1,49 +1,49 @@
 $.ajaxSetup({cache:false});
 
-function draw3(){
-    var chartdata = [];
-    var url = 'https://poloniex.com/public?command=returnChartData&currencyPair=USDT_BTC&start=' + (new Date().getTime()-86400000 + "").substring(0,10) + '&end=9999999999&period=300';
+// function draw3(){
+//     var chartdata = [];
 
-    $.getJSON(url, (data) => {
-        $.each(data, (i, item) => {
-            chartdata.push([item.date*1000, item.open, item.high, item.low, item.close]);
-        });
-    }).done(function(){
-        Highcharts.stockChart('chart',{
-            title: {
-                text: 'BTC' + ' 차트 (5m)'
-            },
-            rangeSelector: {
-                buttons: [
-                    {type: 'minute',count: 30,text: '30m'},
-                    {type: 'hour',count: 1,text: '1h'},
-                    {type: 'hour',count: 2,text: '2h'},
-                    {type: 'hour',count: 6,text: '6h'},
-                    {type: 'all',count: 1,text: '1d'}
-                ],
-                selected: 3,
-                inputEnabled: true
-            },
-            plotOptions: {
-                candlestick: {
-                    downColor: 'blue',
-                    upColor: 'red'
-                }
-            },
-            series: [{
-                name: 'BTC USDT($)',
-                type: 'candlestick',
-                data: chartdata,
-                tooltip: {
-                    valueDecimals: 2
-                },
-                animation: {
-                    duration: 2000
-                }
-            }]
-        });
-    });
-}
+//     $.getJSON('http://localhost:3000/poloniex-api', (data) => {
+//         var chartapi = JSON.parse(data);
+//         $.each(chartapi, (i, item) => {
+//             chartdata.push([item.date*1000, item.open, item.high, item.low, item.close]);
+//         });
+//     }).done(function(){
+//         Highcharts.stockChart('chart',{
+//             title: {
+//                 text: 'BTC' + ' 차트 (5m)'
+//             },
+//             rangeSelector: {
+//                 buttons: [
+//                     {type: 'minute',count: 30,text: '30m'},
+//                     {type: 'hour',count: 1,text: '1h'},
+//                     {type: 'hour',count: 2,text: '2h'},
+//                     {type: 'hour',count: 6,text: '6h'},
+//                     {type: 'all',count: 1,text: '1d'}
+//                 ],
+//                 selected: 3,
+//                 inputEnabled: true
+//             },
+//             plotOptions: {
+//                 candlestick: {
+//                     downColor: 'blue',
+//                     upColor: 'red'
+//                 }
+//             },
+//             series: [{
+//                 name: 'BTC USDT($)',
+//                 type: 'candlestick',
+//                 data: chartdata,
+//                 tooltip: {
+//                     valueDecimals: 2
+//                 },
+//                 animation: {
+//                     duration: 2000
+//                 }
+//             }]
+//         });
+//     });
+// }
 
 
 function numberWithCommas(x) {
@@ -64,13 +64,14 @@ function rbchecker(pcp){
 }
 
 function bithumb(){
-    $.get('https://api.bithumb.com/public/ticker/BTC_KRW', function(data) {
-        var btc_price = parseFloat(data['data']['closing_price']);
-        var btc_max_price = parseFloat(data['data']['max_price']);
-        var btc_min_price = parseFloat(data['data']['min_price']);
-        var btc_24H = (+data['data']['units_traded_24H']).toFixed(2);
-        var btc_24H_acc = ((data['data']['acc_trade_value_24H'])/100000000).toFixed(2);
-        var btc_pcp = +(data['data']['prev_closing_price']);
+    $.get('http://localhost:3000/bithumb-api', function(data) {
+        var btc = JSON.parse(data);
+        var btc_price = parseFloat(btc.data['closing_price']);
+        var btc_max_price = parseFloat(btc.data['max_price']);
+        var btc_min_price = parseFloat(btc.data['min_price']);
+        var btc_24H = (+btc.data['units_traded_24H']).toFixed(2);
+        var btc_24H_acc = ((btc.data['acc_trade_value_24H'])/100000000).toFixed(2);
+        var btc_pcp = +(btc.data['prev_closing_price']);
         var btc_diff = (btc_price - btc_pcp) / btc_pcp * 100;
         $('#coin_price').html(numberWithCommas(btc_price)+' KRW');
         $('#max_price').html(numberWithCommas(btc_max_price));
@@ -87,7 +88,3 @@ function proc() {
     setTimeout("proc()", 500);
 }
 
-function proc2() {
-    draw3();
-    setTimeout("proc2()", 3000);
-}
