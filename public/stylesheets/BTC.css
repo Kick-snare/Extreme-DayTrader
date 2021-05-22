@@ -13,6 +13,9 @@ a {
   margin: auto;
   min-height: 1000px;
   border-radius: 10px; }
+  #wrap #content_wrap {
+    display: flex;
+    flex-direction: column; }
 
 #header {
   border-radius: 7px;
@@ -32,7 +35,7 @@ a {
   height: 500px;
   margin-left: auto; }
 
-#billboard {
+#trade_info {
   width: auto;
   height: auto;
   min-height: 500px;

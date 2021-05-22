@@ -16,6 +16,12 @@ a {
   min-height: 1000px;
 
   border-radius: 10px;
+
+  #content_wrap{
+    display : flex;
+    flex-direction: column;
+
+  }
 }
 
 #header{
@@ -42,7 +48,7 @@ a {
   margin-left: auto;
 }
 
-#billboard {
+#trade_info {
   width: auto;
   height: auto;
   min-height: 500px;

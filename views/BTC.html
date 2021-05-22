@@ -26,57 +26,42 @@
           </div>
         </nav>
       </header>
-      <div id="content_container">
-        <div id="realtime_price">
-          <h1 id="coin_price"></h1>
-          <div id="diff_pcp"></div>
-          <div id="coin_info">
-            <div>
-              <span>고가 (당일)</span>
-              <span id="max_price"></span>
-              <span>원</span>
-            </div>
-            <div >
-              <span>저가 (당일)</span>
-              <span id="min_price"></span>
-              <span>원</span>
-            </div>
-            <div >
-              <span>거래량 (24시간)</span>
-              <span id="units_traded_24H"></span>
-              <span>BTC</span>
-            </div>
-            <div >
-              <span>거래량 (24시간)</span>
-              <span id="acc_trade_value_24H"></span>
-              <span>억원</span>
+      <div class="content_wrap">
+        <div id="content_container">
+          <div id="realtime_price">
+            <h1 id="coin_price"></h1>
+            <div id="diff_pcp"></div>
+            <div id="coin_info">
+              <div>
+                <span>고가 (당일)</span>
+                <span id="max_price"></span>
+                <span>원</span>
+              </div>
+              <div >
+                <span>저가 (당일)</span>
+                <span id="min_price"></span>
+                <span>원</span>
+              </div>
+              <div >
+                <span>거래량 (24시간)</span>
+                <span id="units_traded_24H"></span>
+                <span>BTC</span>
+              </div>
+              <div >
+                <span>거래량 (24시간)</span>
+                <span id="acc_trade_value_24H"></span>
+                <span>억원</span>
+              </div>
             </div>
           </div>
+          <div id="chart"></div>
         </div>
-        <div id="chart">
-          <script>
-            new TradingView.widget(
-            {
-            "autosize": true,
-            "symbol": "BINANCE:BTCUSD",
-            "interval": "240",
-            "timezone": "Asia/Seoul",
-            "theme": "light",
-            "style": "1",
-            "locale": "kr",
-            "toolbar_bg": "#f1f3f6",
-            "enable_publishing": false,
-            "hide_top_toolbar": true,
-            "hide_legend": true,
-            "save_image": false,
-            "container_id": "tradingview_f6623"
-          }
-            );
-          </script>
+        <div id="trade_info">
+          trade_info
         </div>
       </div>
-      <div id="billboard">
-        billboard
+      <div id="other_coin">
+        ??
       </div>
       <footer id="footer">
 
