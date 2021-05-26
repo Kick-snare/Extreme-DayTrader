@@ -1,12 +1,9 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #f3eee6; }
-
-a {
-  color: #00b7ff; }
+  padding: 0x;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 #wrap {
+  width: 85%;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -18,9 +15,14 @@ a {
     flex-direction: column; }
 
 #header {
-  border-radius: 7px;
-  height: 70px;
-  margin-bottom: 30px; }
+  height: 100px;
+  margin-bottom: 30px;
+  background-color: rgba(240, 240, 240, 0.945); }
+  #header .logo_img {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 10%;
+    padding-top: 20px; }
 
 #content_container {
   width: 100%;
@@ -29,7 +31,7 @@ a {
   justify-content: center; }
 
 #chart {
-  width: 60%;
+  width: 65%;
   display: block;
   max-width: 1000px;
   height: 500px;
@@ -39,17 +41,18 @@ a {
   width: auto;
   height: auto;
   min-height: 500px;
-  border: 1px solid black; }
+  padding: 100px;
+  background-color: rgba(240, 240, 240, 0.945); }
 
 #realtime_price {
   display: flex;
   flex-direction: column;
-  border: 20px solid white;
-  background-color: #fafafa;
+  background-color: rgba(240, 240, 240, 0.945);
   margin-right: auto;
-  padding: 20px;
+  border-radius: 10px;
+  padding: 50px 60px;
   height: 500px;
-  width: 40%;
+  width: 35%;
   max-width: 700px; }
   #realtime_price h1 {
     padding: 10px; }
@@ -74,5 +77,27 @@ a {
     color: white;
     padding: 3px;
     border-radius: 5px; }
+
+#real_price_bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  top: 0;
+  position: sticky;
+  background-color: rgba(226, 226, 226, 0.945);
+  min-height: 50px;
+  padding: 0 8%;
+  margin: 40px 0;
+  z-index: 10;
+  border-bottom: 5px solid white; }
+
+#trade_info {
+  border-radius: 10px; }
+  #trade_info form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+  #trade_info form > div {
+    width: 38%; }
 
 /*# sourceMappingURL=BTC.css.map */

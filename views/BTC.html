@@ -2,40 +2,28 @@
 <html>
   <head>
     <title>극한의 단타충</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/BTC.css' />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
 		<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.css">
+    <script src="semantic/semantic.js"></script>
     <script src="/javascripts/BTC.js"></script>
+    <link rel='stylesheet' href='/stylesheets/BTC.css' />
   </head>
   <body onload="proc(); proc2();">
+    <header id="header">
+      <nav>
+        <div class="logo_img">
+          <a href="http://localhost:3000/"><img src="/images/logo.svg" width="300px" alt="logo"/></a>
+        </div>
+      </nav>
+    </header>
     <div id="wrap">
-      <header id="header">
-        <nav class="navbar navbar-light" style="background-color: #e3f2fd;" >
-          <div class="container-fluid">
-            <a class="navbar-brand">
-              <img src="/images/logo.svg" width="300px" alt="logo"/>
-            </a>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </nav>
-      </header>
       <div class="content_wrap">
         <div id="content_container">
           <div id="realtime_price">
-            <h1 id="coin_price"></h1>
+            <h1 class="coin_price"></h1>
             <div id="diff_pcp"></div>
             <div id="coin_info">
               <div>
@@ -60,15 +48,82 @@
               </div>
             </div>
           </div>
+          <div class="wall" style="width: 50px;"></div>
           <div id="chart"></div>
         </div>
-        <div id="trade_info">
-          trade_info
+        <div id="real_price_bar">
+            <div>현재가 <span class="coin_price"></span></div>
+            <div>진입가</div>
+            <div>손익 99999%</div>
+            <div class="ui vertical animated button" tabindex="0">
+              <div class="visible content">Go To Top</div>
+              <div class="hidden content">
+                <i class="up arrow icon"></i>
+              </div>
+            </div>
         </div>
-      </div>
-      <div id="other_coin">
-        ??
-        ??
+        <div id="trade_info">
+          <form class="ui form">
+
+            <div id="buy">
+              <div class="inline fields">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="buy_order" checked="checked">
+                    <label>지정가</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="buy_order">
+                    <label>시장가</label>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label>지정가</label>
+                <input type="number" name="first-name" placeholder="지정가 입력">
+              </div>
+              <div class="field">
+                <label>주문 수량</label>
+                <input type="number" name="last-name" placeholder="주문 수량 입력">
+              </div>
+              <button class="ui huge button" type="submit">Submit</button>
+            </div>
+
+            <div id="sell">
+              <div class="inline fields">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="sell_order" checked="checked">
+                    <label>지정가</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="sell_order">
+                    <label>시장가</label>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label>지정가</label>
+                <input type="number" name="first-name" placeholder="지정가 입력">
+              </div>
+              <div class="field">
+                <label>주문 수량</label>
+                <input type="number" name="last-name" placeholder="주문 수량 입력">
+              </div>
+              <button class="ui huge button" type="submit">Submit</button>
+            </div>
+
+          </form>
+          
+        </div>
+        <div id="other_coin" style="height: 2000px;">
+          ??
+          ??
+        </div>
       </div>
       <footer id="footer">
 

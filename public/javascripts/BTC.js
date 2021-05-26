@@ -53,12 +53,12 @@ function numberWithCommas(x) {
 function rbchecker(pcp){
     if(pcp > 0) {
         $('#diff_pcp').css('background-color','red');
-        $('#coin_price').css('color','red');
+        $('.coin_price').css('color','red');
 
     }
     else {
         $('#diff_pcp').css('background-color','blue');
-        $('#coin_price').css('color','blue');
+        $('.coin_price').css('color','blue');
 
     }
 }
@@ -73,7 +73,7 @@ function bithumb(){
         var btc_24H_acc = ((btc.data['acc_trade_value_24H'])/100000000).toFixed(2);
         var btc_pcp = +(btc.data['prev_closing_price']);
         var btc_diff = (btc_price - btc_pcp) / btc_pcp * 100;
-        $('#coin_price').html(numberWithCommas(btc_price)+' KRW');
+        $('.coin_price').html(numberWithCommas(btc_price)+' KRW');
         $('#max_price').html(numberWithCommas(btc_max_price));
         $('#min_price').html(numberWithCommas(btc_min_price));
         $('#units_traded_24H').html(numberWithCommas(btc_24H));
