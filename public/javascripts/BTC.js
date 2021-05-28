@@ -54,11 +54,13 @@ function rbchecker(pcp){
     if(pcp > 0) {
         $('#diff_pcp').css('background-color','red');
         $('.coin_price').css('color','red');
+        $('#real_price_bar').css('border-bottom','5px solid red');
 
     }
     else {
         $('#diff_pcp').css('background-color','blue');
         $('.coin_price').css('color','blue');
+        $('#real_price_bar').css('border-bottom','5px solid blue');
 
     }
 }
