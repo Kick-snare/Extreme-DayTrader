@@ -103,6 +103,14 @@ function getCoinNews(){
     })
 }
 
+
+function gotoUp(){
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+}
+
 function proc() {
     bithumb();
     setTimeout("proc()", 50000);
