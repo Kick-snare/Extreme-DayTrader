@@ -11,7 +11,7 @@
     <script src="/javascripts/BTC.js"></script>
     <link rel='stylesheet' href='/stylesheets/BTC.css' />
   </head>
-  <body onload="proc(); proc2();">
+  <body onload="proc(); proc2(); getCoinNews()">
     <header id="header">
       <nav>
         <div class="logo_img">
@@ -120,11 +120,13 @@
           </form>
           
         </div>
-        <div id="other_coin" style="height: 500px;">
+        <div id="other_coin" style="height: 200px;">
           아더코인
         </div>
-        <div id="news" style="height: 2000px;">
-          뉴스
+        <div id="news">
+          <div class="container">
+            <button class="ui button" type="submit" onclick="getCoinNews()">새로고침</button>
+          </div>
         </div>
       </div>
       <footer id="footer">

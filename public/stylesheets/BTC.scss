@@ -112,12 +112,23 @@ body {
   background-color: $DARKER_COLOR;
   
   min-height: 50px;
+  width: 120%;
   padding: 0 8%;
   margin: 40px 0;
+  margin-left: -10%;
   z-index: 10;
 
+  border-top: 10px solid $DARKER_COLOR;
   border-bottom: 5px solid rgb(255, 255, 255);
   // border-radius: 10px;
+
+  .button{
+    height: 50px;
+    margin-top: -8px;
+    .visible{
+      top:8px;
+    }
+  }
 }
 
 #trade_info{
@@ -145,4 +156,48 @@ body {
   border-radius: 10px;
   background-color: $MAIN_COLOR;
   margin : 20px 0;
+
+  .container{
+    display: flex;
+    flex-direction: column;
+
+    .date{
+      min-width: none;
+      text-align: right;
+      margin: 10px;
+    }
+    
+    .news{
+      background-color: $DARKER_COLOR;
+      min-height: 150px;
+      width: 80%;
+      margin: 15px auto;
+      padding: 10px 30px 15px;
+      border-radius: 10px;
+      transition-duration: 0.1s;
+
+      &:hover{
+        transition-duration: 0.2s;
+        background-color: white;
+        border:rgb(240, 240, 240) 1px solid;
+      }
+      
+
+      .news_title{
+        margin: 10px 0 20px;
+        color: black;
+      }
+
+      .news_description{
+        color: black;
+        width : 85%;
+        margin-left: 10px;
+      }
+
+      .news_date{
+        text-align: right;
+        margin-top: 20px;
+      }
+    }
+  }
 }

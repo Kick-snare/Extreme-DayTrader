@@ -142,10 +142,22 @@ body {
   position: sticky;
   background-color: rgba(226, 226, 226, 0.945);
   min-height: 50px;
+  width: 120%;
   padding: 0 8%;
   margin: 40px 0;
+  margin-left: -10%;
   z-index: 10;
+  border-top: 10px solid rgba(226, 226, 226, 0.945);
   border-bottom: 5px solid white;
+}
+
+#real_price_bar .button {
+  height: 50px;
+  margin-top: -8px;
+}
+
+#real_price_bar .button .visible {
+  top: 8px;
 }
 
 #trade_info {
@@ -178,5 +190,55 @@ body {
   border-radius: 10px;
   background-color: rgba(240, 240, 240, 0.945);
   margin: 20px 0;
+}
+
+#news .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#news .container .date {
+  min-width: none;
+  text-align: right;
+  margin: 10px;
+}
+
+#news .container .news {
+  background-color: rgba(226, 226, 226, 0.945);
+  min-height: 150px;
+  width: 80%;
+  margin: 15px auto;
+  padding: 10px 30px 15px;
+  border-radius: 10px;
+  -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s;
+}
+
+#news .container .news:hover {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  background-color: white;
+  border: #f0f0f0 1px solid;
+}
+
+#news .container .news .news_title {
+  margin: 10px 0 20px;
+  color: black;
+}
+
+#news .container .news .news_description {
+  color: black;
+  width: 85%;
+  margin-left: 10px;
+}
+
+#news .container .news .news_date {
+  text-align: right;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=BTC.css.map */

@@ -83,15 +83,36 @@ function bithumb(){
     });
 }
 
+function getCoinNews(){
+    $.getJSON('http://localhost:3000/naver-news-api', (data) => {
+        var newsData = JSON.parse(data);
+
+        $('.container').append('<div class="date">' + newsData.lastBuildDate + '</div>');
+
+        for(let i=1; i<=10; i++){
+            var newsContent = '<a href = "' + newsData.items[i-1].link + '"><h2 class="news_title">' + newsData.items[i-1].title 
+            + '</h2><div class="news_description">' + newsData.items[i-1].description + '</div></a>'
+            + '<div class = news_date>' + newsData.items[i-1].pubDate + '</div>'
+            
+            $('.container').append('<div class="news cell' + i + '"></div>');
+            $('.cell' + i).html(newsContent);
+
+        }
+
+        
+    })
+}
+
 function proc() {
     bithumb();
-    setTimeout("proc()", 500);
+    setTimeout("proc()", 50000);
 }
 
 function proc2() {
     draw3();
-    setTimeout("proc()", 8000);
+    setTimeout("proc()", 800000);
 }
+
 
 {/* <script>
     new TradingView.widget(

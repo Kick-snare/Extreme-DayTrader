@@ -46,7 +46,6 @@ app.get('/bithumb-api', (req,res) => {
     'url': 'https://api.bithumb.com/public/ticker/BTC_KRW'
   };
   request(options, function (error, response) { 
-    console.log(response.body);
     if (error) throw new Error(error);
       res.json(response.body);
   });
@@ -60,28 +59,32 @@ app.get('/poloniex-api', (req,res) => {
   };
 
   request(options, function (error, response) { 
-    console.log(response.body);
     if (error) throw new Error(error);
       res.json(response.body);
   });
 })
 
+var client_id = 'MwaTRbnO3I56Rn0QYl2C';
+var client_secret = 'P4l4XvsaOh';
+
 app.get('/naver-news-api', (req, res) => {
-  var coinKeyword = '비트코인';
+  // var coinKeyword = '비트코인';
 
   var request = require('request');
   var options = {
     'method': 'GET',
-    'url': 'https://openapi.naver.com/v1/search/news.json?query='+ coinKeyword +'&display=10',
+    
+    'url': 'https://openapi.naver.com/v1/search/news?query=' + encodeURI('비트코인') ,
     'headers': {
-      'X-Naver-Client-Id': 'MwaTRbnO3I56Rn0QYl2C',
-      'X-Naver-Client-Secret': 'P4l4XvsaOh'
+      'X-Naver-Client-Id': client_id, 'X-Naver-Client-Secret': client_secret
     }
   };
   request(options, function (error, response) {
+    console.log(error);
     if (error) throw new Error(error);
-    console.log(response.body);
+    res.json(response.body);  
   });
+
 })
 
 
