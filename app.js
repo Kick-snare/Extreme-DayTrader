@@ -66,6 +66,25 @@ app.get('/poloniex-api', (req,res) => {
   });
 })
 
+app.get('/naver-news-api', (req, res) => {
+  var coinKeyword = '비트코인';
+
+  var request = require('request');
+  var options = {
+    'method': 'GET',
+    'url': 'https://openapi.naver.com/v1/search/news.json?query='+ coinKeyword +'&display=10',
+    'headers': {
+      'X-Naver-Client-Id': 'MwaTRbnO3I56Rn0QYl2C',
+      'X-Naver-Client-Secret': 'P4l4XvsaOh'
+    }
+  };
+  request(options, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body);
+  });
+})
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
