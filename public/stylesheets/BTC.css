@@ -1,88 +1,144 @@
 body {
   padding: 0x;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 #wrap {
   width: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: white;
   margin: auto;
   min-height: 1000px;
-  border-radius: 10px; }
-  #wrap #content_wrap {
-    display: flex;
-    flex-direction: column; }
+  border-radius: 10px;
+}
+
+#wrap #content_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 
 #header {
   height: 100px;
   margin-bottom: 30px;
-  background-color: rgba(240, 240, 240, 0.945); }
-  #header .logo_img {
-    width: fit-content;
-    height: fit-content;
-    margin-left: 10%;
-    padding-top: 20px; }
+  background-color: rgba(240, 240, 240, 0.945);
+}
+
+#header .logo_img {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 10%;
+  padding-top: 20px;
+}
 
 #content_container {
   width: 100%;
   margin: 0px auto 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center; }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 
 #chart {
   width: 65%;
   display: block;
   max-width: 1000px;
   height: 500px;
-  margin-left: auto; }
+  margin-left: auto;
+}
 
 #trade_info {
   width: auto;
   height: auto;
   min-height: 500px;
   padding: 100px;
-  background-color: rgba(240, 240, 240, 0.945); }
+  background-color: rgba(240, 240, 240, 0.945);
+}
 
 #realtime_price {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: rgba(240, 240, 240, 0.945);
   margin-right: auto;
   border-radius: 10px;
   padding: 50px 60px;
   height: 500px;
   width: 35%;
-  max-width: 700px; }
-  #realtime_price h1 {
-    padding: 10px; }
-  #realtime_price #diff_pcp {
-    width: 80px;
-    height: 30px;
-    padding-top: 5px;
-    margin-left: auto;
-    border-radius: 5px;
-    background-color: grey;
-    text-align: center;
-    color: white; }
+  max-width: 700px;
+}
+
+#realtime_price h1 {
+  padding: 10px;
+}
+
+#realtime_price #diff_pcp {
+  width: 80px;
+  height: 30px;
+  padding-top: 5px;
+  margin-left: auto;
+  border-radius: 5px;
+  background-color: grey;
+  text-align: center;
+  color: white;
+}
 
 #coin_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column; }
-  #coin_info div {
-    padding: 10px;
-    margin: 10px; }
-  #coin_info span:first-child {
-    background-color: #5f5f5f;
-    color: white;
-    padding: 3px;
-    border-radius: 5px; }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#coin_info div {
+  padding: 10px;
+  margin: 10px;
+}
+
+#coin_info span:first-child {
+  background-color: #5f5f5f;
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+}
 
 #real_price_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   top: 0;
+  position: -webkit-sticky;
   position: sticky;
   background-color: rgba(226, 226, 226, 0.945);
   min-height: 50px;
@@ -92,59 +148,105 @@ body {
   margin-left: -10%;
   z-index: 10;
   border-top: 10px solid rgba(226, 226, 226, 0.945);
-  border-bottom: 5px solid white; }
-  #real_price_bar .button {
-    height: 50px;
-    margin-top: -8px; }
-    #real_price_bar .button .visible {
-      top: 8px; }
+  border-bottom: 5px solid white;
+}
+
+#real_price_bar .button {
+  height: 50px;
+  margin-top: -8px;
+}
+
+#real_price_bar .button .visible {
+  top: 8px;
+}
 
 #trade_info {
-  border-radius: 10px; }
-  #trade_info form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around; }
-  #trade_info form > div {
-    width: 38%; }
+  border-radius: 10px;
+}
+
+#trade_info form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#trade_info form > div {
+  width: 38%;
+}
 
 #other_coin {
   border-radius: 10px;
   background-color: rgba(240, 240, 240, 0.945);
-  margin: 20px 0; }
+  margin: 20px 0;
+}
 
 #news {
   border-radius: 10px;
   background-color: rgba(240, 240, 240, 0.945);
-  margin: 20px 0; }
-  #news .container {
-    display: flex;
-    flex-direction: column; }
-    #news .container .date {
-      min-width: none;
-      text-align: right;
-      margin: 10px; }
-    #news .container .news {
-      background-color: rgba(226, 226, 226, 0.945);
-      min-height: 150px;
-      width: 80%;
-      margin: 15px auto;
-      padding: 10px 30px 15px;
-      border-radius: 10px;
-      transition-duration: 0.1s; }
-      #news .container .news:hover {
-        transition-duration: 0.2s;
-        background-color: white;
-        border: #f0f0f0 1px solid; }
-      #news .container .news .news_title {
-        margin: 10px 0 20px;
-        color: black; }
-      #news .container .news .news_description {
-        color: black;
-        width: 85%;
-        margin-left: 10px; }
-      #news .container .news .news_date {
-        text-align: right;
-        margin-top: 20px; }
+  margin: 20px 0;
+}
 
+#news .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#news .container .date {
+  min-width: none;
+  text-align: right;
+  margin: 10px;
+}
+
+#news .container .news {
+  background-color: rgba(226, 226, 226, 0.945);
+  min-height: 150px;
+  width: 80%;
+  margin: 15px auto;
+  padding: 10px 30px 15px;
+  border-radius: 10px;
+  -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s;
+}
+
+#news .container .news:hover {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  background-color: white;
+  border: #f0f0f0 1px solid;
+}
+
+#news .container .news .news_title {
+  margin: 10px 0 20px;
+  color: black;
+}
+
+#news .container .news .news_description {
+  color: black;
+  width: 85%;
+  margin-left: 10px;
+}
+
+#news .container .news .news_date {
+  text-align: right;
+  margin-top: 20px;
+}
+
+#footer {
+  height: 300px;
+  width: 100%;
+  margin-top: 100px;
+  background-color: black;
+  color: white;
+}
 /*# sourceMappingURL=BTC.css.map */

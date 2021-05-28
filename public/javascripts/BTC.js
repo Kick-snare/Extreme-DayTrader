@@ -115,12 +115,12 @@ function gotoUp(){
 
 function proc() {
     bithumb();
-    setTimeout("proc()", 50000);
+    setTimeout("proc()", 500);
 }
 
 function proc2() {
     draw3();
-    setTimeout("proc()", 800000);
+    setTimeout("proc()", 8000);
 }
 
 
