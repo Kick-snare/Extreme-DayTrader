@@ -185,16 +185,21 @@ body {
 
       .news_title{
         margin: 10px 0 20px;
-        color: black;
+        // color: black;
+        &:hover{
+          text-decoration: underline;
+        }
       }
 
       .news_description{
         color: black;
         width : 85%;
         margin-left: 10px;
+        
       }
 
       .news_date{
+        color: grey;
         text-align: right;
         margin-top: 20px;
       }

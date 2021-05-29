@@ -1,7 +1,23 @@
 $.ajaxSetup({cache:false});
 
+
+function exchanger(usd){
+    var exchangeData;
+    $.get('http://localhost:3000/exchange-api', '비트코인',(data) => {
+        exchangeData = JSON.parse(data);
+        console.log(exchangeData);
+        var splitedEX = exchangeData[22].ttb.split(',');
+        var USD2KRW = parseFloat(splitedEX[0] + splitedEX[1]);
+        console.log((usd*USD2KRW).toFixed(2));
+    });
+    // return (usd*USD2KRW).toFixed(2);
+}
+
+exchanger(5);
+
 function draw3(){
     var chartdata = [];
+
 
     $.getJSON('http://localhost:3000/poloniex-api', (data) => {
         var chartapi = JSON.parse(data);
@@ -102,7 +118,23 @@ function getCoinNews(){
         }
 
         
-    })
+    });
+}
+
+function viewOtherCoins(){
+    var widget = [];
+    widget[0] = '<div class="tradingview-widget-container"><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BINANCE:BTCUSD","width": 350,"height": 220,"locale": "kr","dateRange": "3M","colorTheme": "light","trendLineColor": "#37a6ef","underLineColor": "#E3F2FD","isTransparent": false,"autosize": false,"largeChartUrl": ""}</script></div>';
+    widget[1] = '<div class="tradingview-widget-container"><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BINANCE:ETHUSD","width": 350,"height": 220,"locale": "kr","dateRange": "3M","colorTheme": "light","trendLineColor": "#37a6ef","underLineColor": "#E3F2FD","isTransparent": false,"autosize": false,"largeChartUrl": ""}</script></div>';
+
+
+
+    $('#other_coin').append(widget[0]);
+    $('#other_coin').append(widget[1]);
+    $('#other_coin').append(widget[2]);
+    $('#other_coin').append(widget[3]);
+    $('#other_coin').append(widget[4]);
+
+
 }
 
 
@@ -120,11 +152,15 @@ function proc() {
 
 function proc2() {
     draw3();
-    setTimeout("proc()", 8000);
+    setTimeout("proc2()", 8000);
 }
 
 
-{/* <script>
+$(document).ready(function(){
+    viewOtherCoins();
+}); 
+
+/* <script>
     new TradingView.widget(
     {
     "autosize": true,
@@ -142,4 +178,4 @@ function proc2() {
     "container_id": "tradingview_f6623"
     }
     );
-    </script> */}
+    </script> */
