@@ -100,6 +100,7 @@ body {
     padding: 3px;
     border-radius: 5px;
   }
+  
 }
 
 #real_price_bar{
@@ -150,6 +151,13 @@ body {
   border-radius: 10px;
   background-color: $MAIN_COLOR;
   margin : 20px 0;
+  padding-top: 10px;
+  padding-left: 7%;
+
+  .tradingview-widget-container{
+    float: left;
+    margin: 5px  20px;
+  }
 }
 
 #news{
@@ -217,4 +225,8 @@ body {
   background-color: black;
 
   color: white;
+}
+
+.clear{
+  clear:both;
 }

@@ -122,19 +122,15 @@ function getCoinNews(){
 }
 
 function viewOtherCoins(){
+    var coins = ['BTC', 'ETH', 'XRP', 'ETC', 'EOS', 'ADA'];
     var widget = [];
-    widget[0] = '<div class="tradingview-widget-container"><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BINANCE:BTCUSD","width": 350,"height": 220,"locale": "kr","dateRange": "3M","colorTheme": "light","trendLineColor": "#37a6ef","underLineColor": "#E3F2FD","isTransparent": false,"autosize": false,"largeChartUrl": ""}</script></div>';
-    widget[1] = '<div class="tradingview-widget-container"><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BINANCE:ETHUSD","width": 350,"height": 220,"locale": "kr","dateRange": "3M","colorTheme": "light","trendLineColor": "#37a6ef","underLineColor": "#E3F2FD","isTransparent": false,"autosize": false,"largeChartUrl": ""}</script></div>';
 
-
-
-    $('#other_coin').append(widget[0]);
-    $('#other_coin').append(widget[1]);
-    $('#other_coin').append(widget[2]);
-    $('#other_coin').append(widget[3]);
-    $('#other_coin').append(widget[4]);
-
-
+    var wid_url = ['<div class="tradingview-widget-container"><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BITHUMB:', 'KRW","width": 400,"height": 180,"locale": "kr","dateRange": "3M","colorTheme": "light","trendLineColor": "#37a6ef","underLineColor": "#E3F2FD","isTransparent": false,"autosize": false,"largeChartUrl": ""}</script></div>'];
+    
+    for(let i=0;i<6;i++){
+        widget[i] =  wid_url[0] + coins[i] + wid_url[1];
+        $('#other_coin').append(widget[i]);
+    }
 }
 
 
