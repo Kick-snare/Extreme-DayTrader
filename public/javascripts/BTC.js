@@ -1,5 +1,9 @@
 $.ajaxSetup({cache:false});
 
+var entry = 0;
+var realtime = 0;
+var mycoin = 0;
+
 
 function getExchange(callback){
     $.get('http://localhost:3000/exchange-api',(data) => {
@@ -30,7 +34,7 @@ function chartDrawer(usd2krw){
                     {type: 'hour',count: 6,text: '6h'},
                     {type: 'all',count: 1,text: '1d'}
                 ],
-                selected: 3,
+                selected: 2,
                 inputEnabled: true
             },
             plotOptions: {
@@ -77,12 +81,12 @@ function rbchecker(pcp){
     if(pcp > 0) {
         $('#diff_pcp').css('background-color','red');
         $('.coin_price').css('color','red');
-        $('#real_price_bar').css('border-bottom','5px solid red');
+        // $('#real_price_bar').css('border-bottom','5px solid red');
     }
     else {
         $('#diff_pcp').css('background-color','blue');
         $('.coin_price').css('color','blue');
-        $('#real_price_bar').css('border-bottom','5px solid blue');
+        // $('#real_price_bar').css('border-bottom','5px solid blue');
     }
 }
 
@@ -90,6 +94,7 @@ function bithumb(){
     $.get('http://localhost:3000/bithumb-api', function(data) {
         var btc = JSON.parse(data);
         var btc_price = parseFloat(btc.data['closing_price']);
+        realtime = btc_price;
         var btc_max_price = parseFloat(btc.data['max_price']);
         var btc_min_price = parseFloat(btc.data['min_price']);
         var btc_24H = (+btc.data['units_traded_24H']).toFixed(2);
@@ -97,6 +102,7 @@ function bithumb(){
         var btc_pcp = +(btc.data['prev_closing_price']);
         var btc_diff = (btc_price - btc_pcp) / btc_pcp * 100;
         $('.coin_price').html(numberWithCommas(btc_price)+' KRW');
+        $('#coin_price_real').html(numberWithCommas(btc_price)+' KRW');
         $('#max_price').html(numberWithCommas(btc_max_price));
         $('#min_price').html(numberWithCommas(btc_min_price));
         $('#units_traded_24H').html(numberWithCommas(btc_24H));
@@ -136,6 +142,50 @@ function viewOtherCoins(){
     }
 }
 
+function orderChecker(){
+
+    if($('#buy .order').is(":checked")){
+        console.log('지정가');
+        $('#buy .order_field').removeAttr('disabled');
+        price = $('#buy .order_field').val();
+        
+    } else{
+        console.log('시장가');
+        $('#buy .order_field').attr('disabled','disabled');
+    }    
+}
+
+function buyCoin(){
+    if($('#buy .order').is(":checked")){
+        var price = $('#buy .order_field').val();
+        entry += $('#buy .order_quantitiy').val() * price;
+    } else{
+        $('#buy .order_quantitiy').val() * realtime;
+        entry += $('#buy .order_quantitiy').val() * realtime;
+    }
+    mycoin += $('#buy .order_quantitiy').val();
+}
+
+function displayEntryPrice() {
+    var diff = (realtime*mycoin-entry)/(realtime*mycoin) * 100; 
+    if(diff>0){
+        $('#real_price_bar').css('border-bottom','5px solid red');
+        $('#coin_diff').css('color','red');
+        $('#coin_diff_price').css('color','red');
+    } else if(!diff){
+        $('#real_price_bar').css('border-bottom','5px solid grey');
+        $('#coin_diff').css('color','grey');
+        $('#coin_diff_price').css('color','grey');
+    } else{
+        $('#real_price_bar').css('border-bottom','5px solid blue');
+        $('#coin_diff').css('color','blue');
+        $('#coin_diff_price').css('color','blue');
+    }
+    $('#entry_price').html((entry/mycoin).toFixed());
+    $('#coin_diff').html(diff.toFixed(3));
+    $('#coin_diff_price').html(((diff*realtime).toFixed()));
+    setTimeout("displayEntryPrice()", 500);
+}
 
 function gotoUp(){
     window.scrollTo({
@@ -151,7 +201,7 @@ function proc() {
 
 function proc2() {
     getExchange(chartDrawer);
-    // setTimeout("proc2()", 50000);
+    setTimeout("proc2()", 100000);
 
 }
 
@@ -159,4 +209,5 @@ function proc2() {
 $(document).ready(function(){
     viewOtherCoins();
     lineDrawer();
+    buyCoin();
 }); 

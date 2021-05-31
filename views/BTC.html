@@ -52,9 +52,10 @@
           <div id="chart"></div>
         </div>
         <div id="real_price_bar">
-            <div>현재가 <span class="coin_price"></span></div>
-            <div>진입가</div>
-            <div>손익 99999%</div>
+            <div>현재가 <span id="coin_price_real"></span></div>
+            <div>진입가 <span id="entry_price"></span></div>
+            <div>수익률 <span id="coin_diff"></span></div>
+            <div>수익 <span id="coin_diff_price"></span></div>
             <button class="ui vertical animated button" tabindex="0" onclick="gotoUp(); lineDrawer();">
               <div class="visible content">Go To Top</div>
               <div class="hidden content">
@@ -65,56 +66,56 @@
         <div id="trade_info">
           <form class="ui form">
 
-            <div id="buy">
+            <div id="buy" >
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" checked="checked">
+                    <input class="order" name="buy" type="radio" onclick="orderChecker();">
                     <label>지정가</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="buy_order">
+                    <input class="market" type="radio" name="buy"  checked="checked" onclick="orderChecker();">
                     <label>시장가</label>
                   </div>
                 </div>
               </div>
               <div class="field">
                 <label>지정가</label>
-                <input type="number" placeholder="지정가 입력">
+                <input class="order_field" type="number" placeholder="지정가 입력" disabled="disabled">
               </div>
               <div class="field">
                 <label>주문 수량</label>
-                <input type="number" placeholder="주문 수량 입력">
+                <input class="order_quantitiy"  type="number" placeholder="주문 수량 입력">
               </div>
-              <div class="ui huge button" >매도</div>
+              <div class="ui huge button" onclick="buyCoin();displayEntryPrice(); lineDrawer();">매수</div>
             </div>
 
             <div id="sell">
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" checked="checked">
+                    <input class="order" name="sell" type="radio" onclick="orderChecker();" disabled="disabled">
                     <label>지정가</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" >
+                    <input class="market" type="radio" name="sell" onclick="orderChecker();" checked="checked">
                     <label>시장가</label>
                   </div>
                 </div>
               </div>
               <div class="field">
                 <label>지정가</label>
-                <input type="number" placeholder="지정가 입력">
+                <input class="order_field" type="number" placeholder="지정가 입력">
               </div>
               <div class="field">
                 <label>주문 수량</label>
-                <input type="number" placeholder="주문 수량 입력">
+                <input class="order_quantitiy" type="number" placeholder="주문 수량 입력">
               </div>
-              <div class="ui huge button">매수</div>
+              <div class="ui huge button">매도</div>
             </div>
 
           </form>
