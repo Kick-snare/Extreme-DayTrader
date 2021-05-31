@@ -1,28 +1,23 @@
 $.ajaxSetup({cache:false});
 
 
-function exchanger(usd){
-    var exchangeData;
+function getExchange(callback){
     $.get('http://localhost:3000/exchange-api', '비트코인',(data) => {
-        exchangeData = JSON.parse(data);
-        console.log(exchangeData);
+        var exchangeData = JSON.parse(data);
         var splitedEX = exchangeData[22].ttb.split(',');
-        var USD2KRW = parseFloat(splitedEX[0] + splitedEX[1]);
-        console.log((usd*USD2KRW).toFixed(2));
+        var USD2KRW = parseFloat(splitedEX[0] + splitedEX[1]).toFixed(2);
+        callback(USD2KRW);
     });
-    // return (usd*USD2KRW).toFixed(2);
 }
 
-exchanger(5);
-
-function draw3(){
+function chartDrawer(usd2krw){
     var chartdata = [];
-
-
     $.getJSON('http://localhost:3000/poloniex-api', (data) => {
         var chartapi = JSON.parse(data);
         $.each(chartapi, (i, item) => {
-            chartdata.push([item.date*1000, item.open, item.high, item.low, item.close]);
+            chartdata.push([item.date*1000, usd2krw*item.open , 
+                usd2krw*item.high, usd2krw*item.low, usd2krw*item.close]);
+            // console.log('usd : ' + item.open + ', krw : ' + usd2krw*item.open);
         });
     }).done(function(){
         Highcharts.stockChart('chart',{
@@ -47,7 +42,7 @@ function draw3(){
                 }
             },
             series: [{
-                name: 'BTC USDT($)',
+                name: 'KRW(원)',
                 type: 'candlestick',
                 data: chartdata,
                 tooltip: {
@@ -143,17 +138,18 @@ function gotoUp(){
 
 function proc() {
     bithumb();
-    setTimeout("proc()", 500);
+    setTimeout("proc()", 1000);
 }
 
 function proc2() {
-    draw3();
-    setTimeout("proc2()", 8000);
+    getExchange(chartDrawer);
+    setTimeout("proc2()", 10000);
 }
 
 
 $(document).ready(function(){
     viewOtherCoins();
+    
 }); 
 
 /* <script>
