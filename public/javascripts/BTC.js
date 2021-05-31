@@ -2,7 +2,7 @@ $.ajaxSetup({cache:false});
 
 
 function getExchange(callback){
-    $.get('http://localhost:3000/exchange-api', '비트코인',(data) => {
+    $.get('http://localhost:3000/exchange-api',(data) => {
         var exchangeData = JSON.parse(data);
         var splitedEX = exchangeData[22].ttb.split(',');
         var USD2KRW = parseFloat(splitedEX[0] + splitedEX[1]).toFixed(2);
@@ -21,9 +21,7 @@ function chartDrawer(usd2krw){
         });
     }).done(function(){
         Highcharts.stockChart('chart',{
-            title: {
-                text: 'BTC' + ' 차트 (5m)'
-            },
+            title: { text: 'BTC CHART'},
             rangeSelector: {
                 buttons: [
                     {type: 'minute',count: 30,text: '30m'},
@@ -56,6 +54,20 @@ function chartDrawer(usd2krw){
     });
 }
 
+function lineDrawer(){
+    var path_d = $('path.highcharts-point').last().attr('d');
+    var value1 = path_d.split(' ')[1];
+    var value2 = path_d.split(' ')[7];
+    path_d = path_d.replace(value1 , '0').replace(value1 , '0');
+    path_d = path_d.replace(value2 , '1000').replace(value2 , '1000');
+
+    $('path.highcharts-point').last().attr({
+        'fill':'magenta', 
+        'stroke-width' : '0',
+        'opacity' : '0.3', 
+        'd': path_d
+        });
+}
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -66,13 +78,11 @@ function rbchecker(pcp){
         $('#diff_pcp').css('background-color','red');
         $('.coin_price').css('color','red');
         $('#real_price_bar').css('border-bottom','5px solid red');
-
     }
     else {
         $('#diff_pcp').css('background-color','blue');
         $('.coin_price').css('color','blue');
         $('#real_price_bar').css('border-bottom','5px solid blue');
-
     }
 }
 
@@ -111,16 +121,14 @@ function getCoinNews(){
             $('.cell' + i).html(newsContent);
 
         }
-
-        
     });
 }
 
 function viewOtherCoins(){
     var coins = ['BTC', 'ETH', 'XRP', 'ETC', 'EOS', 'ADA'];
     var widget = [];
-
-    var wid_url = ['<div class="tradingview-widget-container"><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BITHUMB:', 'KRW","width": 400,"height": 180,"locale": "kr","dateRange": "3M","colorTheme": "light","trendLineColor": "#37a6ef","underLineColor": "#E3F2FD","isTransparent": false,"autosize": false,"largeChartUrl": ""}</script></div>'];
+    var wid_url = ['<div class="tradingview-widget-container"><script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>{"symbol": "BITHUMB:'
+    ,'KRW","width": 400,"height": 180,"locale": "kr","dateRange": "3M","colorTheme": "light","trendLineColor": "#37a6ef","underLineColor": "#E3F2FD","isTransparent": false,"autosize": false,"largeChartUrl": ""}</script></div>'];
     
     for(let i=0;i<6;i++){
         widget[i] =  wid_url[0] + coins[i] + wid_url[1];
@@ -138,36 +146,17 @@ function gotoUp(){
 
 function proc() {
     bithumb();
-    setTimeout("proc()", 1000);
+    setTimeout("proc()", 5000);
 }
 
 function proc2() {
     getExchange(chartDrawer);
-    setTimeout("proc2()", 10000);
+    // setTimeout("proc2()", 50000);
+
 }
 
 
 $(document).ready(function(){
     viewOtherCoins();
-    
+    lineDrawer();
 }); 
-
-/* <script>
-    new TradingView.widget(
-    {
-    "autosize": true,
-    "symbol": "BINANCE:BTCUSD",
-    "interval": "240",
-    "timezone": "Asia/Seoul",
-    "theme": "light",
-    "style": "1",
-    "locale": "kr",
-    "toolbar_bg": "#f1f3f6",
-    "enable_publishing": false,
-    "hide_top_toolbar": true,
-    "hide_legend": true,
-    "save_image": false,
-    "container_id": "tradingview_f6623"
-    }
-    );
-    </script> */

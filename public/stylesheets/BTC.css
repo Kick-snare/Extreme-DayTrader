@@ -1,3 +1,8 @@
+rect.highcharts-scrollbar-track, text.highcharts-credits,
+rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
+g.highcharts-input-group, path.highcharts-button-symbol {
+  display: none; }
+
 body {
   padding: 0x;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }

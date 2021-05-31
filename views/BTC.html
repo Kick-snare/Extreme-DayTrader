@@ -55,7 +55,7 @@
             <div>현재가 <span class="coin_price"></span></div>
             <div>진입가</div>
             <div>손익 99999%</div>
-            <button class="ui vertical animated button" tabindex="0" onclick="gotoUp();">
+            <button class="ui vertical animated button" tabindex="0" onclick="gotoUp(); lineDrawer();">
               <div class="visible content">Go To Top</div>
               <div class="hidden content">
                 <i class="up arrow icon"></i>
@@ -69,7 +69,7 @@
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="buy_order" checked="checked">
+                    <input type="radio" checked="checked">
                     <label>지정가</label>
                   </div>
                 </div>
@@ -82,39 +82,39 @@
               </div>
               <div class="field">
                 <label>지정가</label>
-                <input type="number" name="first-name" placeholder="지정가 입력">
+                <input type="number" placeholder="지정가 입력">
               </div>
               <div class="field">
                 <label>주문 수량</label>
-                <input type="number" name="last-name" placeholder="주문 수량 입력">
+                <input type="number" placeholder="주문 수량 입력">
               </div>
-              <button class="ui huge button" type="submit">Submit</button>
+              <div class="ui huge button" >매도</div>
             </div>
 
             <div id="sell">
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="sell_order" checked="checked">
+                    <input type="radio" checked="checked">
                     <label>지정가</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input type="radio" name="sell_order">
+                    <input type="radio" >
                     <label>시장가</label>
                   </div>
                 </div>
               </div>
               <div class="field">
                 <label>지정가</label>
-                <input type="number" name="first-name" placeholder="지정가 입력">
+                <input type="number" placeholder="지정가 입력">
               </div>
               <div class="field">
                 <label>주문 수량</label>
-                <input type="number" name="last-name" placeholder="주문 수량 입력">
+                <input type="number" placeholder="주문 수량 입력">
               </div>
-              <button class="ui huge button" type="submit">Submit</button>
+              <div class="ui huge button">매수</div>
             </div>
 
           </form>
@@ -136,4 +136,5 @@
       <h4>Project for PNU Basic Internet And Web</h4>
     </footer>
   </body>
+   
 </html>
