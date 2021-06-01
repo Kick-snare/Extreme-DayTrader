@@ -2,19 +2,9 @@
 $MAIN_COLOR: rgba(240, 240, 240, 0.945);
 $DARKER_COLOR: rgba(226, 226, 226, 0.945);
 
-// {
-//   content: "asdfad";
-//   width: 100px;
-//   height: 1px;
-//   background-color: black;
-//   border-top:1px solid black;
-//   z-index: 100;
-//   // display: none;
-// }
 rect.highcharts-scrollbar-track, text.highcharts-credits,
 rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
-g.highcharts-input-group, path.highcharts-button-symbol
-{
+g.highcharts-input-group, path.highcharts-button-symbol{
   display: none;
 }
 
@@ -136,7 +126,7 @@ body {
   z-index: 10;
 
   border-top: 10px solid $DARKER_COLOR;
-  border-bottom: 5px solid rgb(58, 58, 58);
+  border-bottom: 5px solid rgb(37, 37, 37);
   // border-radius: 10px;
 
   .button{

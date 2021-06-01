@@ -158,10 +158,10 @@ function orderChecker(){
 function buyCoin(){
     if($('#buy .order').is(":checked")){
         var price = $('#buy .order_field').val();
-        entry += $('#buy .order_quantitiy').val() * price;
+        entry = $('#buy .order_quantitiy').val() * price;
     } else{
         $('#buy .order_quantitiy').val() * realtime;
-        entry += $('#buy .order_quantitiy').val() * realtime;
+        entry = $('#buy .order_quantitiy').val() * realtime;
     }
     mycoin += $('#buy .order_quantitiy').val();
 }
@@ -173,7 +173,7 @@ function displayEntryPrice() {
         $('#coin_diff').css('color','red');
         $('#coin_diff_price').css('color','red');
     } else if(!diff){
-        $('#real_price_bar').css('border-bottom','5px solid grey');
+        $('#real_price_bar').css('border-bottom','5px solid rgba(240, 240, 240, 0.945)' );
         $('#coin_diff').css('color','grey');
         $('#coin_diff_price').css('color','grey');
     } else{
@@ -181,9 +181,9 @@ function displayEntryPrice() {
         $('#coin_diff').css('color','blue');
         $('#coin_diff_price').css('color','blue');
     }
-    $('#entry_price').html((entry/mycoin).toFixed());
-    $('#coin_diff').html(diff.toFixed(3));
-    $('#coin_diff_price').html(((diff*realtime).toFixed()));
+    $('#entry_price').html(numberWithCommas((entry/mycoin).toFixed()) + ' KRW');
+    $('#coin_diff').html(diff.toFixed(3)+ '%');
+    $('#coin_diff_price').html(numberWithCommas((diff*realtime).toFixed())+ ' KRW');
     setTimeout("displayEntryPrice()", 500);
 }
 
