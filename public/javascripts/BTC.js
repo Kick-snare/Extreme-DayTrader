@@ -67,7 +67,7 @@ function lineDrawer(){
 
     $('path.highcharts-point').last().attr({
         'fill':'magenta', 
-        'stroke-width' : '0',
+        'stroke-width' : '1',
         'opacity' : '0.3', 
         'd': path_d
         });
@@ -142,20 +142,34 @@ function viewOtherCoins(){
     }
 }
 
-function orderChecker(){
-
+function orderCheckerOfBuy(){
+    
     if($('#buy .order').is(":checked")){
-        console.log('지정가');
+        console.log('지정가 매수');
         $('#buy .order_field').removeAttr('disabled');
         price = $('#buy .order_field').val();
         
     } else{
-        console.log('시장가');
+        console.log('시장가 매수');
         $('#buy .order_field').attr('disabled','disabled');
     }    
 }
 
+function orderCheckerOfSell(){
+
+    if($('#sell .order').is(":checked")){
+        console.log('지정가  매도');
+        $('#sell .order_field').removeAttr('disabled');
+        price = $('#sell .order_field').val();
+        
+    } else{
+        console.log('시장가  매도');
+        $('#sell .order_field').attr('disabled','disabled');
+    }    
+}
+
 function buyCoin(){
+    
     if($('#buy .order').is(":checked")){
         var price = $('#buy .order_field').val();
         entry = $('#buy .order_quantitiy').val() * price;
@@ -164,9 +178,31 @@ function buyCoin(){
         entry = $('#buy .order_quantitiy').val() * realtime;
     }
     mycoin += $('#buy .order_quantitiy').val();
+    displayEntryPrice();
+    lineDrawer();
 }
 
+function modalOn(){
+    $('#modal .entry').html(numberWithCommas(realtime.toFixed()) + ' KRW');
+    $('#modal .quantity').html($('#buy .order_quantitiy').val() + ' 개');
+    $('#modal .total').html(numberWithCommas(realtime * $('#buy .order_quantitiy').val()) + ' KRW');
+    $('#modal').modal('show');
+}
+    
+// function buyCoin(){
+//     if($('#buy .order').is(":checked")){
+//         var price = $('#buy .order_field').val();
+//         entry = $('#buy .order_quantitiy').val() * price;
+//     } else{
+//         $('#buy .order_quantitiy').val() * realtime;
+//         entry = $('#buy .order_quantitiy').val() * realtime;
+//     }
+//     mycoin += $('#buy .order_quantitiy').val();
+// }
+
 function displayEntryPrice() {
+    $('#real_price_bar .init').css('display','none');
+
     var diff = (realtime*mycoin-entry)/(realtime*mycoin) * 100; 
     if(diff>0){
         $('#real_price_bar').css('border-bottom','5px solid red');
@@ -182,7 +218,7 @@ function displayEntryPrice() {
         $('#coin_diff_price').css('color','blue');
     }
     $('#entry_price').html(numberWithCommas((entry/mycoin).toFixed()) + ' KRW');
-    $('#coin_diff').html(diff.toFixed(3)+ '%');
+    $('#coin_diff').html(diff.toFixed(3)+ ' %');
     $('#coin_diff_price').html(numberWithCommas((diff*realtime).toFixed())+ ' KRW');
     setTimeout("displayEntryPrice()", 500);
 }
@@ -210,4 +246,6 @@ $(document).ready(function(){
     viewOtherCoins();
     lineDrawer();
     buyCoin();
+    orderCheckerOfSell();
+    orderCheckerOfBuy();
 }); 

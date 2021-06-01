@@ -12,6 +12,7 @@
     <link rel='stylesheet' href='/stylesheets/BTC.css' />
   </head>
   <body onload="proc(); proc2(); getCoinNews();">
+    
     <header id="header">
       <nav>
         <div class="logo_img">
@@ -52,14 +53,16 @@
           <div id="chart"></div>
         </div>
         <div id="real_price_bar">
-            <div>현재가 <span id="coin_price_real"></span></div>
-            <div>진입가 <span id="entry_price"></span></div>
-            <div>수익률 <span id="coin_diff"></span></div>
-            <div>수익 <span id="coin_diff_price"></span></div>
-            <button class="ui vertical animated button" tabindex="0" onclick="gotoUp(); lineDrawer();">
-              <div class="visible content">Go To Top</div>
-              <div class="hidden content">
-                <i class="up arrow icon"></i>
+            <div><span class="rpb_tag">현재가</span><span id="coin_price_real"><span class="init">0 KRW</span></span></div>
+            <div><span class="rpb_tag">진입가</span><span id="entry_price"><span class="init">0 KRW</span></span></div>
+            <div><span class="rpb_tag">수익률</span><span id="coin_diff"><span class="init">0 %</span></span></div>
+            <div><span class="rpb_tag">수 익</span><span id="coin_diff_price"><span class="init">0 KRW</span></span></div>
+            <div class="rpb_button">
+              <button class="ui vertical animated button" tabindex="0" onclick="gotoUp();">
+                <div class="visible content">Go To Top</div>
+                <div class="hidden content">
+                  <i class="up arrow icon"></i>
+                </div>
               </div>
             </button>
         </div>
@@ -70,13 +73,13 @@
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input class="order" name="buy" type="radio" onclick="orderChecker();">
+                    <input class="order" name="buy" type="radio" onclick="orderCheckerOfBuy();">
                     <label>지정가</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input class="market" type="radio" name="buy"  checked="checked" onclick="orderChecker();">
+                    <input class="market" type="radio" name="buy"  checked="checked" onclick="orderCheckerOfBuy();">
                     <label>시장가</label>
                   </div>
                 </div>
@@ -89,20 +92,20 @@
                 <label>주문 수량</label>
                 <input class="order_quantitiy"  type="number" placeholder="주문 수량 입력">
               </div>
-              <div class="ui huge button" onclick="buyCoin();displayEntryPrice(); lineDrawer();">매수</div>
+              <div class="ui huge button" onclick="modalOn();">매수</div>
             </div>
 
             <div id="sell">
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input class="order" name="sell" type="radio" onclick="orderChecker();" disabled="disabled">
+                    <input class="order" name="sell" type="radio" disabled="disabled" onclick="orderCheckerOfSell();">
                     <label>지정가</label>
                   </div>
                 </div>
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input class="market" type="radio" name="sell" onclick="orderChecker();" checked="checked">
+                    <input class="market" type="radio" name="sell" checked="checked" onclick="orderCheckerOfSell();" >
                     <label>시장가</label>
                   </div>
                 </div>
@@ -136,6 +139,28 @@
       <h2>ALL COPYRIGHT TO YOOJUN HONG 2021</h2>
       <h4>Project for PNU Basic Internet And Web</h4>
     </footer>
+    <div id="modal" class="ui basic modal">
+      <div class="content">
+        <div>
+          <div class="info">진입가</div><span class="entry"></span>
+        </div>
+        <div>
+          <div class="info">주문수량</div><span class="quantity"></span>
+        </div>
+        <div>
+          <div class="info">총액</div><span class="total"></span>
+        </div>
+      </div>
+      <div class="actions">
+        <!-- <div class="ui red basic cancel inverted button">
+          <i class="remove icon"></i>취소
+        </div>
+        <span class="blank"></span> -->
+        <div class="ui green ok inverted button" onclick="buyCoin();">
+          <i class="checkmark icon" ></i>매수
+        </div>
+      </div>
+    </div>
   </body>
    
 </html>

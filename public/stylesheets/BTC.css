@@ -1,6 +1,7 @@
 rect.highcharts-scrollbar-track, text.highcharts-credits,
 rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
-g.highcharts-input-group, path.highcharts-button-symbol {
+g.highcharts-input-group, path.highcharts-button-symbol,
+rect.highcharts-scrollbar-thumb, path.highcharts-scrollbar-rifles {
   display: none; }
 
 body {
@@ -31,7 +32,7 @@ body {
 
 #content_container {
   width: 100%;
-  margin: 0px auto 70px;
+  margin: 0px auto 40px;
   display: flex;
   justify-content: center; }
 
@@ -42,13 +43,6 @@ body {
   height: 500px;
   margin-left: auto; }
 
-#trade_info {
-  width: auto;
-  height: auto;
-  min-height: 500px;
-  padding: 100px;
-  background-color: rgba(240, 240, 240, 0.945); }
-
 #realtime_price {
   display: flex;
   flex-direction: column;
@@ -56,7 +50,8 @@ body {
   margin-right: auto;
   border-radius: 10px;
   padding: 50px 60px;
-  height: 500px;
+  height: 400px;
+  margin: auto;
   width: 35%;
   max-width: 700px; }
   #realtime_price h1 {
@@ -92,19 +87,40 @@ body {
   background-color: rgba(226, 226, 226, 0.945);
   min-height: 50px;
   width: 120%;
-  padding: 0 8%;
+  padding-left: 6%;
+  padding-right: 2%;
+  padding-top: 10px;
   margin: 40px 0;
   margin-left: -10%;
   z-index: 10;
+  font-size: large;
   border-top: 10px solid rgba(226, 226, 226, 0.945);
-  border-bottom: 5px solid #252525; }
-  #real_price_bar .button {
-    height: 50px;
-    margin-top: -8px; }
-    #real_price_bar .button .visible {
-      top: 8px; }
+  border-bottom: 5px solid #353535; }
+  #real_price_bar > div {
+    width: 300px; }
+  #real_price_bar div > span:first-child {
+    margin-right: 10px; }
+  #real_price_bar .rpb_tag {
+    color: white;
+    background-color: #5c5c5c;
+    padding: 5px 10px;
+    border-radius: 3px; }
+  #real_price_bar .rpb_button {
+    width: 200px;
+    height: 40px; }
+    #real_price_bar .rpb_button .button {
+      width: 200px;
+      margin-top: -8px;
+      background-color: white;
+      border: 2px solid #5c5c5c; }
 
 #trade_info {
+  width: auto;
+  height: auto;
+  min-height: 200px;
+  padding: 60px;
+  margin-bottom: 50px;
+  background-color: rgba(240, 240, 240, 0.945);
   border-radius: 10px; }
   #trade_info form {
     display: flex;
@@ -168,5 +184,14 @@ body {
 
 .clear {
   clear: both; }
+
+#modal {
+  font-size: 30px; }
+  #modal div.info {
+    margin-left: 50px;
+    margin-bottom: 20px;
+    display: inline-block;
+    font-weight: bold;
+    width: 300px; }
 
 /*# sourceMappingURL=BTC.css.map */
