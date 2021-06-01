@@ -8,6 +8,8 @@ var beep = true;
 var audio_mid = new Audio('../sound/mid.mp3');
 var audio_up = new Audio('../sound/up.mp3');
 var audio_down = new Audio('../sound/down.mp3');
+var audio_high = new Audio('../sound/high.mp3');
+var audio_low = new Audio('../sound/low.mp3');
 
 
 function getExchange(callback){
@@ -244,7 +246,7 @@ function displayEntryPrice() {
     }
     $('#entry_price').html(numberWithCommas((entry/mycoin).toFixed()) + ' KRW');
     $('#coin_diff').html(diff.toFixed(3)+ ' %');
-    $('#coin_diff_price').html(numberWithCommas((-diff*realtime).toFixed())+ ' KRW');
+    $('#coin_diff_price').html(numberWithCommas((diff*realtime).toFixed())+ ' KRW');
     variometer();
     setTimeout("displayEntryPrice()", 500);
 }
@@ -271,19 +273,31 @@ function variometer(){
     
     var diff = realtime - for_realtime;
     if(!diff){
-        if(beep) audio_mid.play();
+        if(beep) {
+            audio_mid.play();
+        }
+        $('#diff > i').attr('class','sort icon');
+        $('#diff > i').css('color','grey');
+        $('#diff > span').html('-----');
+        $('#diff > span').css('color','grey');
+        
     } else if(diff > 0){
-        if(beep) audio_up.play();
-
+        if(beep){
+            if(diff < 20000) audio_up.play();
+            else audio_high.play();
+        }
         $('#diff > i').attr('class','caret up icon');
         $('#diff > i').css('color','red');
         $('#diff > span').html(numberWithCommas(diff.toFixed()));
         $('#diff > span').css('color','red');
-    } else{
-        if(beep) audio_down.play();
+    } else {
+        if(beep){
+            if(diff > -20000) audio_down.play();
+            else audio_low.play();
+        }
         $('#diff > i').attr('class','caret down icon');
         $('#diff > i').css('color','blue');
-        $('#diff > span').html(numberWithCommas(diff.toFixed()));
+        $('#diff > span').html(numberWithCommas((-diff).toFixed()));
         $('#diff > span').css('color','blue');
     }
 }

@@ -92,14 +92,16 @@
                 <label>주문 수량</label>
                 <input class="order_quantitiy"  type="number" placeholder="주문 수량 입력">
               </div>
-              <div class="ui huge button" onclick="modalOn();">매수</div>
+              <div align="right">
+                <div class="ui huge button" onclick="modalOn();">매수</div>
+              </div>
             </div>
 
             <div id="sell">
               <div class="inline fields">
                 <div class="field">
                   <div class="ui radio checkbox">
-                    <input class="order" name="sell" type="radio" disabled="disabled" onclick="orderCheckerOfSell();">
+                    <input class="order" name="sell" type="radio" onclick="orderCheckerOfSell();">
                     <label>지정가</label>
                   </div>
                 </div>
@@ -112,13 +114,15 @@
               </div>
               <div class="field">
                 <label>지정가</label>
-                <input class="order_field" type="number" placeholder="지정가 입력">
+                <input class="order_field" type="number" disabled="disabled"  placeholder="지정가 입력">
               </div>
               <div class="field">
                 <label>주문 수량</label>
                 <input class="order_quantitiy" type="number" placeholder="주문 수량 입력">
               </div>
-              <div class="ui huge button" onclick="modalOn2()">매도</div>
+              <div align="right">
+                <div class="ui huge button" onclick="modalOn2()">매도</div>
+              </div>
             </div>
 
           </form>
