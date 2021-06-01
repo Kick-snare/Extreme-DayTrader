@@ -251,8 +251,25 @@ body {
   color: white;
 }
 
-.clear{
-  clear:both;
+#audio_button{
+  background-color: rgb(255, 255, 255);
+  width: 240px;
+  height: 100px;
+  border-radius: 12px;
+  border-top: 3px solid grey;
+  border-left: 3px solid grey;
+
+  position: fixed;
+  right: -10px;
+  bottom: -10px;
+
+  .button{
+    width: 200px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 6% 10% 10% 6%;
+    padding: 20px 30px;
+  }
 }
 
 #modal{
@@ -264,12 +281,8 @@ body {
     font-weight: bold;
     width: 300px;
   }
-  // .actions{
-  //   text-align: justify;
-  //   span{
-  //     width: 65%;
-  //     height: 1px;
-  //     display: inline-block;
-  //   }
-  // }
+}
+
+.clear{
+  clear:both;
 }

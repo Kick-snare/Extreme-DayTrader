@@ -182,8 +182,22 @@ body {
   background-color: black;
   color: white; }
 
-.clear {
-  clear: both; }
+#audio_button {
+  background-color: white;
+  width: 240px;
+  height: 100px;
+  border-radius: 12px;
+  border-top: 3px solid grey;
+  border-left: 3px solid grey;
+  position: fixed;
+  right: -10px;
+  bottom: -10px; }
+  #audio_button .button {
+    width: 200px;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 6% 10% 10% 6%;
+    padding: 20px 30px; }
 
 #modal {
   font-size: 30px; }
@@ -193,5 +207,8 @@ body {
     display: inline-block;
     font-weight: bold;
     width: 300px; }
+
+.clear {
+  clear: both; }
 
 /*# sourceMappingURL=BTC.css.map */

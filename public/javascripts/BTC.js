@@ -4,6 +4,10 @@ var entry = 0;
 var realtime = 0;
 var for_realtime = 0;
 var mycoin = 0;
+var beep = true;
+var audio_mid = new Audio('../sound/mid.mp3');
+var audio_up = new Audio('../sound/up.mp3');
+var audio_down = new Audio('../sound/down.mp3');
 
 
 function getExchange(callback){
@@ -172,6 +176,7 @@ function orderCheckerOfSell(){
 function buyCoin(){
     if($('#buy .order_quantitiy').val() <= 0) {
         alert('주문 수량을 입력해주세요!');
+        $('#buy .order_quantitiy').focus()
         return;
     }
     
@@ -183,6 +188,8 @@ function buyCoin(){
         entry = $('#buy .order_quantitiy').val() * realtime;
     }
     mycoin += $('#buy .order_quantitiy').val();
+
+    $('#buy .order_quantitiy').val('');
     displayEntryPrice();
     lineDrawer();
 }
@@ -243,14 +250,13 @@ function proc() {
 
 function proc2() {
     getExchange(chartDrawer);
-    setTimeout("proc2()", 100000);
+    setTimeout("proc2()", 1000000);
 
 }
 
 function variometer(){
-    var audio_mid = new Audio('../sound/mid.mp3');
-    var audio_up = new Audio('../sound/up.mp3');
-    var audio_down = new Audio('../sound/down.mp3');
+    if(!beep) return;
+    
     console.log(realtime - for_realtime);
     if(realtime == for_realtime){
         audio_mid.play();
@@ -258,6 +264,18 @@ function variometer(){
         audio_up.play();
     } else{
         audio_down.play();
+    }
+}
+
+function soundOnOff(){
+    if($('#audio_button > div').attr('sound') == "ON"){
+        beep = false;
+        $('#audio_button > div').attr('sound','OFF');
+        $('#audio_button i').attr('class','volume down icon');
+    } else{
+        beep = true;
+        $('#audio_button > div').attr('sound','ON');
+        $('#audio_button i').attr('class','volume up icon');
     }
 }
 
