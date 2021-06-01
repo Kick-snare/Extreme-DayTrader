@@ -2,6 +2,7 @@ $.ajaxSetup({cache:false});
 
 var entry = 0;
 var realtime = 0;
+var for_realtime = 0;
 var mycoin = 0;
 
 
@@ -93,16 +94,16 @@ function rbchecker(pcp){
 function bithumb(){
     $.get('http://localhost:3000/bithumb-api', function(data) {
         var btc = JSON.parse(data);
-        var btc_price = parseFloat(btc.data['closing_price']);
-        realtime = btc_price;
+        for_realtime = realtime;
+        realtime = parseFloat(btc.data['closing_price']);
         var btc_max_price = parseFloat(btc.data['max_price']);
         var btc_min_price = parseFloat(btc.data['min_price']);
         var btc_24H = (+btc.data['units_traded_24H']).toFixed(2);
         var btc_24H_acc = ((btc.data['acc_trade_value_24H'])/100000000).toFixed(2);
         var btc_pcp = +(btc.data['prev_closing_price']);
-        var btc_diff = (btc_price - btc_pcp) / btc_pcp * 100;
-        $('.coin_price').html(numberWithCommas(btc_price)+' KRW');
-        $('#coin_price_real').html(numberWithCommas(btc_price)+' KRW');
+        var btc_diff = (realtime - btc_pcp) / btc_pcp * 100;
+        $('.coin_price').html(numberWithCommas(realtime)+' KRW');
+        $('#coin_price_real').html(numberWithCommas(realtime)+' KRW');
         $('#max_price').html(numberWithCommas(btc_max_price));
         $('#min_price').html(numberWithCommas(btc_min_price));
         $('#units_traded_24H').html(numberWithCommas(btc_24H));
@@ -169,6 +170,10 @@ function orderCheckerOfSell(){
 }
 
 function buyCoin(){
+    if($('#buy .order_quantitiy').val() <= 0) {
+        alert('주문 수량을 입력해주세요!');
+        return;
+    }
     
     if($('#buy .order').is(":checked")){
         var price = $('#buy .order_field').val();
@@ -220,7 +225,8 @@ function displayEntryPrice() {
     $('#entry_price').html(numberWithCommas((entry/mycoin).toFixed()) + ' KRW');
     $('#coin_diff').html(diff.toFixed(3)+ ' %');
     $('#coin_diff_price').html(numberWithCommas((diff*realtime).toFixed())+ ' KRW');
-    setTimeout("displayEntryPrice()", 500);
+    variometer();
+    setTimeout("displayEntryPrice()", 1000);
 }
 
 function gotoUp(){
@@ -232,7 +238,7 @@ function gotoUp(){
 
 function proc() {
     bithumb();
-    setTimeout("proc()", 5000);
+    setTimeout("proc()", 500);
 }
 
 function proc2() {
@@ -241,6 +247,19 @@ function proc2() {
 
 }
 
+function variometer(){
+    var audio_mid = new Audio('../sound/mid.mp3');
+    var audio_up = new Audio('../sound/up.mp3');
+    var audio_down = new Audio('../sound/down.mp3');
+    console.log(realtime - for_realtime);
+    if(realtime == for_realtime){
+        audio_mid.play();
+    } else if(realtime > for_realtime){
+        audio_up.play();
+    } else{
+        audio_down.play();
+    }
+}
 
 $(document).ready(function(){
     viewOtherCoins();
