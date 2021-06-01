@@ -70,7 +70,7 @@ function lineDrawer(){
     var value1 = path_d.split(' ')[1];
     var value2 = path_d.split(' ')[7];
     path_d = path_d.replace(value1 , '0').replace(value1 , '0');
-    path_d = path_d.replace(value2 , '1000').replace(value2 , '1000');
+    path_d = path_d.replace(value2 , '2000').replace(value2 , '2000');
 
     $('path.highcharts-point').last().attr({
         'fill':'magenta', 
@@ -248,6 +248,7 @@ function displayEntryPrice() {
     $('#coin_diff').html(diff.toFixed(3)+ ' %');
     $('#coin_diff_price').html(numberWithCommas((diff*realtime).toFixed())+ ' KRW');
     variometer();
+    lineDrawer();
     setTimeout("displayEntryPrice()", 500);
 }
 
@@ -276,10 +277,10 @@ function variometer(){
         if(beep) {
             audio_mid.play();
         }
-        $('#diff > i').attr('class','sort icon');
-        $('#diff > i').css('color','grey');
-        $('#diff > span').html('-----');
-        $('#diff > span').css('color','grey');
+        // $('#diff > i').attr('class','sort icon');
+        // $('#diff > i').css('color','grey');
+        // $('#diff > span').html('-----');
+        // $('#diff > span').css('color','grey');
         
     } else if(diff > 0){
         if(beep){
@@ -288,7 +289,7 @@ function variometer(){
         }
         $('#diff > i').attr('class','caret up icon');
         $('#diff > i').css('color','red');
-        $('#diff > span').html(numberWithCommas(diff.toFixed()));
+        $('#diff > span').html(numberWithCommas(diff.toFixed()) + '원');
         $('#diff > span').css('color','red');
     } else {
         if(beep){
@@ -297,7 +298,7 @@ function variometer(){
         }
         $('#diff > i').attr('class','caret down icon');
         $('#diff > i').css('color','blue');
-        $('#diff > span').html(numberWithCommas((-diff).toFixed()));
+        $('#diff > span').html(numberWithCommas((-diff).toFixed()) + '원');
         $('#diff > span').css('color','blue');
     }
 }
