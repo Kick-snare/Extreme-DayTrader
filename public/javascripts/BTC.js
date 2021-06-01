@@ -284,7 +284,7 @@ function soundOnOff(){
     if($('#audio_button > div').attr('sound') == "ON"){
         beep = false;
         $('#audio_button > div').attr('sound','OFF');
-        $('#audio_button i').attr('class','volume down icon');
+        $('#audio_button i').attr('class','volume off icon');
     } else{
         beep = true;
         $('#audio_button > div').attr('sound','ON');

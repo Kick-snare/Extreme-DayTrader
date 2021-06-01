@@ -22,8 +22,9 @@ body {
 
 #header {
   height: 100px;
-  margin-bottom: 30px;
-  background-color: rgba(240, 240, 240, 0.945); }
+  margin-bottom: 50px;
+  background-color: rgba(240, 240, 240, 0.945);
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 1px, rgba(0, 0, 0, 0.01) 0px 2px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.07) 0px 13px 8px, rgba(0, 0, 0, 0.09) 0px 1px 16px; }
   #header .logo_img {
     width: fit-content;
     height: fit-content;
@@ -46,9 +47,10 @@ body {
 #realtime_price {
   display: flex;
   flex-direction: column;
-  background-color: rgba(240, 240, 240, 0.945);
+  background-color: white;
   margin-right: auto;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 50px 60px;
   height: 400px;
   margin: auto;
@@ -57,6 +59,7 @@ body {
   #realtime_price h1 {
     padding: 10px; }
   #realtime_price #diff_pcp {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 15px;
     width: 80px;
     height: 30px;
     padding-top: 5px;
@@ -74,6 +77,7 @@ body {
     margin: 10px; }
   #coin_info span:first-child {
     background-color: #5f5f5f;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     color: white;
     padding: 3px;
     border-radius: 5px; }
@@ -84,7 +88,8 @@ body {
   justify-content: space-between;
   top: 0;
   position: sticky;
-  background-color: rgba(226, 226, 226, 0.945);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  background-color: whitesmoke;
   min-height: 50px;
   width: 120%;
   padding-left: 6%;
@@ -94,7 +99,7 @@ body {
   margin-left: -10%;
   z-index: 10;
   font-size: large;
-  border-top: 10px solid rgba(226, 226, 226, 0.945);
+  border-top: 10px solid whitesmoke;
   border-bottom: 5px solid #353535; }
   #real_price_bar > div {
     width: 300px; }
@@ -120,8 +125,9 @@ body {
   min-height: 200px;
   padding: 60px;
   margin-bottom: 50px;
-  background-color: rgba(240, 240, 240, 0.945);
-  border-radius: 10px; }
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; }
   #trade_info form {
     display: flex;
     flex-direction: row;
@@ -131,7 +137,7 @@ body {
 
 #other_coin {
   border-radius: 10px;
-  background-color: rgba(240, 240, 240, 0.945);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 20px 0;
   padding-top: 10px;
   padding-left: 7%; }
@@ -141,7 +147,8 @@ body {
 
 #news {
   border-radius: 10px;
-  background-color: rgba(240, 240, 240, 0.945);
+  background-color: #f1f1f1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   margin: 20px 0; }
   #news .container {
     display: flex;
@@ -151,7 +158,8 @@ body {
       text-align: right;
       margin: 10px; }
     #news .container .news {
-      background-color: rgba(226, 226, 226, 0.945);
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
       min-height: 150px;
       width: 80%;
       margin: 15px auto;
@@ -159,8 +167,9 @@ body {
       border-radius: 10px;
       transition-duration: 0.1s; }
       #news .container .news:hover {
-        transition-duration: 0.2s;
+        transition-duration: 0.1s;
         background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px 0px inset;
         border: #f0f0f0 1px solid; }
       #news .container .news .news_title {
         margin: 10px 0 20px; }
