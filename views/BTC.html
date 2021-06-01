@@ -118,7 +118,7 @@
                 <label>주문 수량</label>
                 <input class="order_quantitiy" type="number" placeholder="주문 수량 입력">
               </div>
-              <div class="ui huge button">매도</div>
+              <div class="ui huge button" onclick="modalOn2()">매도</div>
             </div>
 
           </form>
@@ -159,6 +159,24 @@
       <div class="actions">
         <div class="ui green ok inverted button" onclick="buyCoin();">
           <i class="checkmark icon" ></i>매수
+        </div>
+      </div>
+    </div>
+    <div id="modal2" class="ui basic modal">
+      <div class="content">
+        <div>
+          <div class="info">매도가</div><span class="entry"></span>
+        </div>
+        <div>
+          <div class="info">매도수량</div><span class="quantity"></span>
+        </div>
+        <div>
+          <div class="info">매도총액</div><span class="total"></span>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui green ok inverted button" onclick="sellCoin();">
+          <i class="checkmark icon" ></i>매도
         </div>
       </div>
     </div>

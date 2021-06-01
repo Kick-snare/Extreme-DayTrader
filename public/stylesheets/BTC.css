@@ -199,9 +199,9 @@ body {
     margin: 6% 10% 10% 6%;
     padding: 20px 30px; }
 
-#modal {
+#modal, #modal2 {
   font-size: 30px; }
-  #modal div.info {
+  #modal div.info, #modal2 div.info {
     margin-left: 50px;
     margin-bottom: 20px;
     display: inline-block;

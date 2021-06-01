@@ -124,13 +124,12 @@ function getCoinNews(){
         $('.container').append('<div class="date">' + newsData.lastBuildDate + '</div>');
 
         for(let i=1; i<=10; i++){
-            var newsContent = '<a href = "' + newsData.items[i-1].link + '"><h2 class="news_title">' + newsData.items[i-1].title 
+            var newsContent = '<a target="_blank" href = "' + newsData.items[i-1].link + '"><h2 class="news_title">' + newsData.items[i-1].title 
             + '</h2><div class="news_description">' + newsData.items[i-1].description + '</div></a>'
             + '<div class = news_date>' + newsData.items[i-1].pubDate + '</div>'
             
             $('.container').append('<div class="news cell' + i + '"></div>');
             $('.cell' + i).html(newsContent);
-
         }
     });
 }
@@ -176,7 +175,7 @@ function orderCheckerOfSell(){
 function buyCoin(){
     if($('#buy .order_quantitiy').val() <= 0) {
         alert('주문 수량을 입력해주세요!');
-        $('#buy .order_quantitiy').focus()
+        $('#buy .order_quantitiy').focus();
         return;
     }
     
@@ -184,7 +183,6 @@ function buyCoin(){
         var price = $('#buy .order_field').val();
         entry = $('#buy .order_quantitiy').val() * price;
     } else{
-        $('#buy .order_quantitiy').val() * realtime;
         entry = $('#buy .order_quantitiy').val() * realtime;
     }
     mycoin += $('#buy .order_quantitiy').val();
@@ -194,23 +192,38 @@ function buyCoin(){
     lineDrawer();
 }
 
+    
+function sellCoin(){
+    if($('#sell .order_quantitiy').val() <= 0) {
+        alert('매도 수량을 입력해주세요!');
+        $('#sell .order_quantitiy').focus();
+        return;
+    }
+
+    if($('#sell .order').is(":checked")){
+        var price = $('#sell .order_field').val();
+        // entry = $('#sell .order_quantitiy').val() * price;
+    } else{
+        $('#sell .order_quantitiy').val() * realtime;
+        // entry = $('#sell .order_quantitiy').val() * realtime;
+    }
+    // mycoin -= $('#sell .order_quantitiy').val();
+    $('#sell .order_quantitiy').val('');
+}
+
 function modalOn(){
     $('#modal .entry').html(numberWithCommas(realtime.toFixed()) + ' KRW');
     $('#modal .quantity').html($('#buy .order_quantitiy').val() + ' 개');
     $('#modal .total').html(numberWithCommas(realtime * $('#buy .order_quantitiy').val()) + ' KRW');
     $('#modal').modal('show');
 }
-    
-// function buyCoin(){
-//     if($('#buy .order').is(":checked")){
-//         var price = $('#buy .order_field').val();
-//         entry = $('#buy .order_quantitiy').val() * price;
-//     } else{
-//         $('#buy .order_quantitiy').val() * realtime;
-//         entry = $('#buy .order_quantitiy').val() * realtime;
-//     }
-//     mycoin += $('#buy .order_quantitiy').val();
-// }
+
+function modalOn2(){
+    $('#modal2 .entry').html(numberWithCommas(realtime.toFixed()) + ' KRW');
+    $('#modal2 .quantity').html($('#sell .order_quantitiy').val() + ' 개');
+    $('#modal2 .total').html(numberWithCommas(realtime * $('#sell .order_quantitiy').val()) + ' KRW');
+    $('#modal2').modal('show');
+}
 
 function displayEntryPrice() {
     $('#real_price_bar .init').css('display','none');
