@@ -244,9 +244,9 @@ function displayEntryPrice() {
     }
     $('#entry_price').html(numberWithCommas((entry/mycoin).toFixed()) + ' KRW');
     $('#coin_diff').html(diff.toFixed(3)+ ' %');
-    $('#coin_diff_price').html(numberWithCommas((diff*realtime).toFixed())+ ' KRW');
+    $('#coin_diff_price').html(numberWithCommas((-diff*realtime).toFixed())+ ' KRW');
     variometer();
-    setTimeout("displayEntryPrice()", 1000);
+    setTimeout("displayEntryPrice()", 500);
 }
 
 function gotoUp(){
@@ -268,27 +268,35 @@ function proc2() {
 }
 
 function variometer(){
-    if(!beep) return;
     
-    console.log(realtime - for_realtime);
-    if(realtime == for_realtime){
-        audio_mid.play();
-    } else if(realtime > for_realtime){
-        audio_up.play();
+    var diff = realtime - for_realtime;
+    if(!diff){
+        if(beep) audio_mid.play();
+    } else if(diff > 0){
+        if(beep) audio_up.play();
+
+        $('#diff > i').attr('class','caret up icon');
+        $('#diff > i').css('color','red');
+        $('#diff > span').html(numberWithCommas(diff.toFixed()));
+        $('#diff > span').css('color','red');
     } else{
-        audio_down.play();
+        if(beep) audio_down.play();
+        $('#diff > i').attr('class','caret down icon');
+        $('#diff > i').css('color','blue');
+        $('#diff > span').html(numberWithCommas(diff.toFixed()));
+        $('#diff > span').css('color','blue');
     }
 }
 
 function soundOnOff(){
-    if($('#audio_button > div').attr('sound') == "ON"){
+    if($('#audio_button > div.button').attr('sound') == "ON"){
         beep = false;
-        $('#audio_button > div').attr('sound','OFF');
-        $('#audio_button i').attr('class','volume off icon');
+        $('#audio_button > div.button').attr('sound','OFF');
+        $('#audio_button i.volume').attr('class','volume off icon');
     } else{
         beep = true;
-        $('#audio_button > div').attr('sound','ON');
-        $('#audio_button i').attr('class','volume up icon');
+        $('#audio_button > div.button').attr('sound','ON');
+        $('#audio_button i.volume').attr('class','volume up icon');
     }
 }
 

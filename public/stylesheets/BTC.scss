@@ -98,7 +98,7 @@ body {
   }
   span:first-child {
     background-color: rgb(95, 95, 95);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  
     color: white;
     padding: 3px;
     border-radius: 5px;
@@ -136,6 +136,7 @@ body {
 
   div > span:first-child{
     margin-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 
   .rpb_tag{
@@ -264,7 +265,7 @@ body {
 #audio_button{
   background-color: rgb(255, 255, 255);
   width: 240px;
-  height: 100px;
+  height: 170px;
   border-radius: 12px;
   border-top: 3px solid grey;
   border-left: 3px solid grey;
@@ -273,12 +274,21 @@ body {
   right: -10px;
   bottom: -10px;
 
+  #diff{
+    width: fit-content;
+    height:60px;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
   .button{
     width: 200px;
     border-radius: 5px;
     font-size: 20px;
-    margin: 6% 10% 10% 6%;
-    padding: 20px 30px;
+    margin: 21.5px 10% 10% 6.5%;
+    padding: 15px 25px;
   }
 }
 

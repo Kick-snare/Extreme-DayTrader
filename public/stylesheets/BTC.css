@@ -104,7 +104,8 @@ body {
   #real_price_bar > div {
     width: 300px; }
   #real_price_bar div > span:first-child {
-    margin-right: 10px; }
+    margin-right: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; }
   #real_price_bar .rpb_tag {
     color: white;
     background-color: #5c5c5c;
@@ -194,19 +195,26 @@ body {
 #audio_button {
   background-color: white;
   width: 240px;
-  height: 100px;
+  height: 170px;
   border-radius: 12px;
   border-top: 3px solid grey;
   border-left: 3px solid grey;
   position: fixed;
   right: -10px;
   bottom: -10px; }
+  #audio_button #diff {
+    width: fit-content;
+    height: 60px;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: bold; }
   #audio_button .button {
     width: 200px;
     border-radius: 5px;
     font-size: 20px;
-    margin: 6% 10% 10% 6%;
-    padding: 20px 30px; }
+    margin: 21.5px 10% 10% 6.5%;
+    padding: 15px 25px; }
 
 #modal, #modal2 {
   font-size: 30px; }
