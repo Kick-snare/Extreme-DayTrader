@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>극한의 단타충</title>
+    <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
 		<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
@@ -133,7 +134,7 @@
         <div class="clear"></div>
         <div id="news">
           <div class="container">
-            <button class="ui button" type="submit" onclick="getCoinNews();">새로고침</button>
+            <button class="ui button" onclick="getCoinNews();">새로고침</button>
           </div>
         </div>
       </div>
@@ -149,7 +150,7 @@
         <span>------</span>
       </div>
       <div class="ui primary button" sound="OFF" onclick="soundOnOff();">
-        <i class="volume off icon"></i>Beep Sound
+        <i class="volume on icon"></i>Beep Sound
       </div>
     </div>
     <div id="modal" class="ui basic modal">

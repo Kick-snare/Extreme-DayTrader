@@ -10,6 +10,12 @@ var audio_up = new Audio('../sound/up.mp3');
 var audio_down = new Audio('../sound/down.mp3');
 var audio_high = new Audio('../sound/high.mp3');
 var audio_low = new Audio('../sound/low.mp3');
+// var audio_up = new Audio('../sound/Mars.mp3');
+// var audio_down = new Audio('../sound/low_fun.mp3');
+// var audio_high = new Audio('../sound/goToMars.mp3');
+// var audio_low = new Audio('../sound/lowlow_fun.mp3');
+// var audio_down = new Audio('../sound/narak.mp3');
+// var audio_low = new Audio('../sound/narak.mp3');
 
 
 function getExchange(callback){
@@ -28,7 +34,6 @@ function chartDrawer(usd2krw){
         $.each(chartapi, (i, item) => {
             chartdata.push([item.date*1000, usd2krw*item.open , 
                 usd2krw*item.high, usd2krw*item.low, usd2krw*item.close]);
-            // console.log('usd : ' + item.open + ', krw : ' + usd2krw*item.open);
         });
     }).done(function(){
         Highcharts.stockChart('chart',{
@@ -88,12 +93,10 @@ function rbchecker(pcp){
     if(pcp > 0) {
         $('#diff_pcp').css('background-color','red');
         $('.coin_price').css('color','red');
-        // $('#real_price_bar').css('border-bottom','5px solid red');
     }
     else {
         $('#diff_pcp').css('background-color','blue');
         $('.coin_price').css('color','blue');
-        // $('#real_price_bar').css('border-bottom','5px solid blue');
     }
 }
 
@@ -122,10 +125,9 @@ function bithumb(){
 function getCoinNews(){
     $.getJSON('http://localhost:3000/naver-news-api', (data) => {
         var newsData = JSON.parse(data);
+        // $('.container').append('<div class="date">' + newsData.lastBuildDate + '</div>');
 
-        $('.container').append('<div class="date">' + newsData.lastBuildDate + '</div>');
-
-        for(let i=1; i<=10; i++){
+        for(let i=1; i<=3; i++){
             var newsContent = '<a target="_blank" href = "' + newsData.items[i-1].link + '"><h2 class="news_title">' + newsData.items[i-1].title 
             + '</h2><div class="news_description">' + newsData.items[i-1].description + '</div></a>'
             + '<div class = news_date>' + newsData.items[i-1].pubDate + '</div>'
@@ -149,27 +151,19 @@ function viewOtherCoins(){
 }
 
 function orderCheckerOfBuy(){
-    
     if($('#buy .order').is(":checked")){
-        console.log('지정가 매수');
         $('#buy .order_field').removeAttr('disabled');
         price = $('#buy .order_field').val();
-        
     } else{
-        console.log('시장가 매수');
         $('#buy .order_field').attr('disabled','disabled');
     }    
 }
 
 function orderCheckerOfSell(){
-
     if($('#sell .order').is(":checked")){
-        console.log('지정가  매도');
         $('#sell .order_field').removeAttr('disabled');
         price = $('#sell .order_field').val();
-        
     } else{
-        console.log('시장가  매도');
         $('#sell .order_field').attr('disabled','disabled');
     }    
 }
@@ -204,12 +198,10 @@ function sellCoin(){
 
     if($('#sell .order').is(":checked")){
         var price = $('#sell .order_field').val();
-        // entry = $('#sell .order_quantitiy').val() * price;
     } else{
         $('#sell .order_quantitiy').val() * realtime;
-        // entry = $('#sell .order_quantitiy').val() * realtime;
+
     }
-    // mycoin -= $('#sell .order_quantitiy').val();
     $('#sell .order_quantitiy').val('');
 }
 
@@ -226,6 +218,7 @@ function modalOn2(){
     $('#modal2 .total').html(numberWithCommas(realtime * $('#sell .order_quantitiy').val()) + ' KRW');
     $('#modal2').modal('show');
 }
+
 
 function displayEntryPrice() {
     $('#real_price_bar .init').css('display','none');
@@ -266,22 +259,16 @@ function proc() {
 
 function proc2() {
     getExchange(chartDrawer);
-    setTimeout("proc2()", 1000000);
+    setTimeout("proc2()", 100000);
 
 }
 
+
 function variometer(){
-    
     var diff = realtime - for_realtime;
     if(!diff){
-        if(beep) {
-            audio_mid.play();
-        }
-        // $('#diff > i').attr('class','sort icon');
-        // $('#diff > i').css('color','grey');
-        // $('#diff > span').html('-----');
-        // $('#diff > span').css('color','grey');
-        
+        if(beep) audio_mid.play();
+
     } else if(diff > 0){
         if(beep){
             if(diff < 20000) audio_up.play();
@@ -291,6 +278,7 @@ function variometer(){
         $('#diff > i').css('color','red');
         $('#diff > span').html(numberWithCommas(diff.toFixed()) + '원');
         $('#diff > span').css('color','red');
+
     } else {
         if(beep){
             if(diff > -20000) audio_down.play();
