@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <!-- head start -->
   <head>
     <title>극한의 단타충</title>
     <meta charset="utf-8">
@@ -12,8 +13,12 @@
     <script src="/javascripts/BTC.js"></script>
     <link rel='stylesheet' href='/stylesheets/BTC.css' />
   </head>
+  <!-- head end -->
+
+  <!-- body start -->
   <body onload="proc(); proc2(); getCoinNews();">
     
+    <!-- header  -->
     <header id="header">
       <nav>
         <div class="logo_img">
@@ -21,9 +26,13 @@
         </div>
       </nav>
     </header>
+
+    <!-- begin of content -->
     <div id="wrap">
       <div class="content_wrap">
+
         <div id="content_container">
+          <!-- 실시간 가격표시 창 -->
           <div id="realtime_price">
             <h1 class="coin_price"></h1>
             <div id="diff_pcp"></div>
@@ -50,9 +59,14 @@
               </div>
             </div>
           </div>
+
           <div class="wall" style="width: 50px;"></div>
+          
+          <!-- chart -->
           <div id="chart"></div>
         </div>
+
+        <!-- 실시간 수익 표시 바 -->
         <div id="real_price_bar">
             <div><span class="rpb_tag">현재가</span><span id="coin_price_real"><span class="init">0 KRW</span></span></div>
             <div><span class="rpb_tag">진입가</span><span id="entry_price"><span class="init">0 KRW</span></span></div>
@@ -67,9 +81,12 @@
               </div>
             </button>
         </div>
+
+        <!-- 매수 매매 거래 창 -->
         <div id="trade_info">
           <form class="ui form">
 
+            <!-- 매수 -->
             <div id="buy" >
               <div class="inline fields">
                 <div class="field">
@@ -98,6 +115,7 @@
               </div>
             </div>
 
+            <!-- 매도 -->
             <div id="sell">
               <div class="inline fields">
                 <div class="field">
@@ -125,13 +143,15 @@
                 <div class="ui huge button" onclick="modalOn2()">매도</div>
               </div>
             </div>
-
           </form>
-          
         </div>
+
+        <!-- 미니위젯 -->
         <div id="other_coin" style="min-height: 400px;">
         </div>
         <div class="clear"></div>
+
+        <!-- 네이버 뉴스 -->
         <div id="news">
           <div class="container">
             <button class="ui button" onclick="getCoinNews();">새로고침</button>
@@ -139,11 +159,15 @@
         </div>
       </div>
     </div>
+
+    <!-- footer -->
     <footer id="footer">
       <br>
       <h2>ALL COPYRIGHT TO YOOJUN HONG 2021</h2>
       <h4>Project for PNU Basic Internet And Web</h4>
     </footer>
+
+    <!-- variometer -->
     <div id="audio_button">
       <div id="diff">
         <i class="sort icon"></i>
@@ -153,6 +177,8 @@
         <i class="volume up icon"></i>Beep Sound
       </div>
     </div>
+
+    <!-- modal -->
     <div id="modal" class="ui basic modal">
       <div class="content">
         <div>
@@ -171,6 +197,8 @@
         </div>
       </div>
     </div>
+
+    <!-- modal2 -->
     <div id="modal2" class="ui basic modal">
       <div class="content">
         <div>
