@@ -1,9 +1,3 @@
-rect.highcharts-scrollbar-track, text.highcharts-credits,
-rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
-g.highcharts-input-group, path.highcharts-button-symbol,
-rect.highcharts-scrollbar-thumb, path.highcharts-scrollbar-rifles {
-  display: none; }
-
 body {
   padding: 0x;
   background-color: #fafafa; }
@@ -11,6 +5,7 @@ body {
 * {
   font: "Lucida Grande", Helvetica, Arial, sans-serif; }
 
+/* 전체 페이지를 감싸는 wrap */
 #wrap {
   width: 85%;
   display: flex;
@@ -18,21 +13,27 @@ body {
   margin: auto;
   min-height: 1000px;
   border-radius: 10px; }
+
+  /* wrap 안의 content_wrap */
   #wrap #content_wrap {
     display: flex;
     flex-direction: column; }
 
+/* 헤더부 */
 #header {
   height: 100px;
   margin-bottom: 50px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.03) 0px 2px 1px, rgba(0, 0, 0, 0.01) 0px 2px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.07) 0px 13px 8px, rgba(0, 0, 0, 0.09) 0px 1px 16px; }
+  
+  /* 헤더안의 이미지 부 */
   #header .logo_img {
     width: fit-content;
     height: fit-content;
     margin-left: 10%;
     padding-top: 20px; }
 
+/* 실시간 가격 부와 차트를 감싸는 컨테이너 */
 #content_container {
   width: 100%;
   margin: 0px auto 60px;
@@ -42,6 +43,7 @@ body {
   display: flex;
   justify-content: center; }
 
+/* 차트부분 */
 #chart {
   width: 75%;
   display: block;
@@ -49,6 +51,7 @@ body {
   height: 500px;
   margin-left: auto; }
 
+/* 실시간 가격창 */
 #realtime_price {
   display: flex;
   flex-direction: column;
@@ -61,6 +64,8 @@ body {
   margin: auto;
   width: 25%;
   max-width: 700px; }
+
+  /* 실시간 가격 창안의 children */
   #realtime_price h1 {
     padding: 10px; }
   #realtime_price #diff_pcp {
@@ -74,6 +79,7 @@ body {
     text-align: center;
     color: white; }
 
+/* 실시간 가격창안의 추가적인 정보들 */
 #coin_info {
   display: flex;
   flex-direction: column; }
@@ -87,6 +93,7 @@ body {
     padding: 3px;
     border-radius: 5px; }
 
+/* 실시간 수익 표시 바 */
 #real_price_bar {
   display: flex;
   flex-direction: row;
@@ -116,6 +123,8 @@ body {
     background-color: #5c5c5c;
     padding: 5px 10px;
     border-radius: 3px; }
+
+  /* 실시간 수익바 안의 gototop 버튼 */
   #real_price_bar .rpb_button {
     width: 200px;
     height: 40px; }
@@ -125,6 +134,7 @@ body {
       background-color: white;
       border: 2px solid #5c5c5c; }
 
+/* 거래창 매수 매도 부분 */
 #trade_info {
   width: auto;
   height: auto;
@@ -144,6 +154,7 @@ body {
   #trade_info .button {
     margin-left: auto; }
 
+/* 미니 코인 위젯 부분 */
 #other_coin {
   border-radius: 10px;
   background-color: white;
@@ -155,6 +166,7 @@ body {
     float: left;
     margin: 5px  20px; }
 
+/* 뉴스 컨테이너 */
 #news {
   border-radius: 10px;
   background-color: white;
@@ -193,6 +205,7 @@ body {
         width: 85%;
         margin-left: 10px; }
 
+/* Footer 부분 */        
 #footer {
   height: 300px;
   width: 100%;
@@ -204,6 +217,7 @@ body {
   #footer h4:last-child {
     margin-left: 30px; }
 
+/* variometer 기능 부 */
 #audio_button {
   background-color: white;
   width: 240px;
@@ -228,6 +242,8 @@ body {
     margin: 21.5px 10% 10% 6.5%;
     padding: 15px 25px; }
 
+
+/* 모달창 부분 */
 #modal .ui.modal, #modal2.ui.modal {
   font-size: 30px; }
   #modal .ui.modal div.info, #modal2.ui.modal div.info {
@@ -237,7 +253,13 @@ body {
     font-weight: bold;
     width: 300px; }
 
+/* 미니위젯의 float 속성을 해제하기 위한 클래스 */
 .clear {
   clear: both; }
 
-/*# sourceMappingURL=BTC.css.map */
+/* display none */
+rect.highcharts-scrollbar-track, text.highcharts-credits,
+rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
+g.highcharts-input-group, path.highcharts-button-symbol,
+rect.highcharts-scrollbar-thumb, path.highcharts-scrollbar-rifles {
+  display: none; }
