@@ -5,11 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 const { request } = require('express');
-
 var app = express();
 
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -26,19 +24,17 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// INDEX : 사용하지 않음
 app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/about', (req, res) => {
-  res.render('about');
-});
-
+// BTC : 비트코인의 상세 페이지 라우팅
 app.get('/BTC', (req,res) => {
   res.render('BTC');
 })
 
+// bithumb-api : 빗썸 ticker api 호출 json을 넘겨줌 
 app.get('/bithumb-api', (req,res) => {
   var request = require('request');
   var options = {
@@ -51,6 +47,7 @@ app.get('/bithumb-api', (req,res) => {
   });
 })
 
+// poloniex-api : poloniex cahrt api 호출 json을 넘겨줌 
 app.get('/poloniex-api', (req,res) => {
   var request = require('request');
   var options = {
@@ -64,11 +61,10 @@ app.get('/poloniex-api', (req,res) => {
   });
 })
 
-
+// naver-news-api : 네이버 뉴스 검색 api 호출 json을 넘겨줌 
 app.get('/naver-news-api', (req, res) => {
   var client_id = 'MwaTRbnO3I56Rn0QYl2C';
   var client_secret = 'P4l4XvsaOh';
-  // console.log('쿼리는 ? : ' + req.query.query);
 
   var request = require('request');
   var options = {
@@ -87,6 +83,7 @@ app.get('/naver-news-api', (req, res) => {
 
 })
 
+// exchange-api : exchange api 호출 json을 넘겨줌 
 app.get('/exchange-api', (req, res) =>{
   var authKey = 'na6MZ4hyaWKOkcEhUdOPhLy5NbIu4yoI';
   var request = require('request');

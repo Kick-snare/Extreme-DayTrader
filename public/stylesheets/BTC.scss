@@ -2,13 +2,6 @@
 $MAIN_COLOR: rgba(240, 240, 240, 0.945);
 $DARKER_COLOR: rgba(226, 226, 226, 0.945);
 
-rect.highcharts-scrollbar-track, text.highcharts-credits,
-rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
-g.highcharts-input-group, path.highcharts-button-symbol,
-rect.highcharts-scrollbar-thumb, path.highcharts-scrollbar-rifles{
-  display: none;
-}
-
 body {
   padding: 0x;
   background-color: rgb(250, 250, 250);
@@ -34,8 +27,6 @@ body {
 }
 
 #header{
-
-  // border-radius: 7px;
   height: 100px;
   margin-bottom: 50px;
   background-color: white;
@@ -62,11 +53,8 @@ body {
 #chart{
   width: 75%;
   display: block;
-  // max-width: 1000px;
   border-radius: 10px;
   height: 500px;
-  // box-shadow: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;
-  // border: 1px solid black;
   margin-left: auto;
 }
 
@@ -121,10 +109,7 @@ body {
   top: 0;
   position: sticky;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.01) 0px 8px 12px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-
-  // background-color: rgb(245, 245, 245);
   background-color: white;
-  
   
   min-height: 50px;
   width: 120%;
@@ -327,4 +312,11 @@ body {
 
 .clear{
   clear:both;
+}
+
+rect.highcharts-scrollbar-track, text.highcharts-credits,
+rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
+g.highcharts-input-group, path.highcharts-button-symbol,
+rect.highcharts-scrollbar-thumb, path.highcharts-scrollbar-rifles{
+  display: none;
 }
