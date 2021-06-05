@@ -6,7 +6,7 @@
 Service for user who addicted for day trading.  
 provide real-time price fluctuation and flow for variety of Cryptocurrency.
 
-![picture 2](public/images/d9c318dadf15286829fd354d99ae9d8525faf5033294c773e276e44a189bab2d.png)  
+![picture 2](https://user-images.githubusercontent.com/46425142/120894949-d7349780-c655-11eb-9c43-0f9ce56386fe.png)  
 
 
 프로젝트 **극한의 단타충**은 코인 시장에서 (초)단타매매를 즐겨하는 사용자들을 위한 코인 거래소의 오픈 API를 이용하여 정보를 제공하는 서비스입니다.
