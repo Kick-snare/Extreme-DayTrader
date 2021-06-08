@@ -3,6 +3,10 @@
 ### Extreme daytrader
 <img src="./public/images/logo.svg" style="width : 70%;"/>  
 
+## <img src="https://i.pinimg.com/564x/31/23/9a/31239a2f70e4f8e4e3263fafb00ace1c.jpg" width=30/>소개 영상
+<a href="https://youtu.be/AU-Lsnx2Pcw" target="_blank">![Thumbnail](https://user-images.githubusercontent.com/46425142/121216209-a786c900-c8bb-11eb-83de-0201a529d355.png)</a>
+
+
 Service for user who addicted for day trading.  
 provide real-time price fluctuation and flow for variety of Cryptocurrency.
 
