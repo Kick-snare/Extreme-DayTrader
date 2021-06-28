@@ -1,9 +1,3 @@
-rect.highcharts-scrollbar-track, text.highcharts-credits,
-rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
-g.highcharts-input-group, path.highcharts-button-symbol,
-rect.highcharts-scrollbar-thumb, path.highcharts-scrollbar-rifles {
-  display: none; }
-
 body {
   padding: 0x;
   background-color: #fafafa; }
@@ -239,5 +233,11 @@ body {
 
 .clear {
   clear: both; }
+
+rect.highcharts-scrollbar-track, text.highcharts-credits,
+rect.highcharts-scrollbar-button, path.highcharts-scrollbar-arrow,
+g.highcharts-input-group, path.highcharts-button-symbol,
+rect.highcharts-scrollbar-thumb, path.highcharts-scrollbar-rifles {
+  display: none; }
 
 /*# sourceMappingURL=BTC.css.map */
